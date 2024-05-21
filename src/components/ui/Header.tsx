@@ -2,10 +2,9 @@ import styled from "styled-components";
 import "../../assets/style.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { RootState } from "store";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Popover } from "antd";
-
 const navContent = [
   "Trang chủ",
   "Lịch chiếu",
