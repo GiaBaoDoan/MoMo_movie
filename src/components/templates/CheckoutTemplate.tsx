@@ -58,9 +58,10 @@ const CheckoutTemplate = () => {
       if (indexGheDangDat != -1) {
         classGheDangDat = "gheDangDat";
       }
-      if (user?.taiKhoan == ghe.taiKhoanNguoiDat) {
+      if (user && user?.taiKhoan == ghe.taiKhoanNguoiDat) {
         classGheDuocUserDat = "gheDuocUserLoginDat";
       }
+
       return (
         <button
           onClick={() => dispatch(addGhe(ghe))}
