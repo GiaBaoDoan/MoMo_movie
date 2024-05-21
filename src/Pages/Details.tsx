@@ -7,7 +7,6 @@ import moment from "moment";
 import "../assets/style.css";
 import "../assets/Scss/BlurBG.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import { Spin } from "components/ui/LoadingPages";
 import Sale from "components/ui/Sale";
 import Event from "components/ui/Event";
 import { getListFilmThunk } from "store/QuanLyFilm/Thunk";

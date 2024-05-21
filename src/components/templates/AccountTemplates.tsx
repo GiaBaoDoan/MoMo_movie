@@ -24,14 +24,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import moment from "moment";
-import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AccountSchema, AccountSchemaType } from "schema";
 import { Input } from "components/ui";
 import { upDateThunk } from "store/CapNhatNguoiDung/Thunk";
 import { InforSchema, InforSchemaType } from "schema/InforSchema";
-import { toast } from "react-toastify";
 import Loading from "components/ui/Loading";
 import styled from "styled-components";
 
