@@ -1,4 +1,4 @@
-import { CloseOutlined, UserOutlined } from "@ant-design/icons";
+import { CloseOutlined } from "@ant-design/icons";
 import { useEffect } from "react";
 import { sortBy } from "lodash";
 import { useSelector } from "react-redux";

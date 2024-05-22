@@ -71,6 +71,7 @@ const AccountTemplates = () => {
     dispatch(getLichSuDatVeThunk());
   }, []);
   if (isLoading) return <Loading />;
+
   return (
     <AccountCSS>
       <section className="w-[90%] mx-auto space-y-5">
