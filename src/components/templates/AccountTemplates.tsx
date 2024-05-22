@@ -15,7 +15,6 @@ import { InforSchema, InforSchemaType } from "schema/InforSchema";
 import Loading from "components/ui/Loading";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { AccountSchemaType } from "schema";
 const AccountTemplates = () => {
   const { LichSuDatVe, isLoading } = useSelector(
     (state: RootState) => state.LichSuVeToolkit
@@ -30,7 +29,6 @@ const AccountTemplates = () => {
     mode: "onChange",
     resolver: zodResolver(InforSchema),
   });
-  const [dataInfor, setDataInfor] = useState<AccountSchemaType>();
   const handelDetailVe = (phim: any) => {
     modalRef?.current?.showModal();
     setMaVe(phim);
@@ -127,7 +125,7 @@ const AccountTemplates = () => {
                 <p className="typewriter">
                   {" "}
                   Xin chào,{" "}
-                  <span className="font-medium">{dataInfor?.hoTen}</span>
+                  <span className="font-medium">{LichSuDatVe?.hoTen}</span>
                 </p>
                 <span>{heartIcon}</span>
               </p>
@@ -167,9 +165,7 @@ const AccountTemplates = () => {
                   <span className="font-medium">{LichSuDatVe?.hoTen}</span>
                   <div className="mt-3">
                     <Input
-                      value={
-                        dataInfor?.hoTen ? dataInfor?.hoTen : LichSuDatVe?.hoTen
-                      }
+                      value={LichSuDatVe?.hoTen}
                       name="hoTen"
                       register={register}
                       error={errors?.hoTen?.message as string}
