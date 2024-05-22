@@ -47,16 +47,16 @@ export const Logins = () => {
   };
   return (
     <form
-      className="bg-white p-[25px] rounded-[10px] w-[600px]"
+      className="bg-white h-full rounded-tr-xl rounded-br-xl p-5 w-[600px]"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className=" text-40 font-600 uppercase text-purple-700 text-center">
-        Log in
+      <h1 className="text-3xl font-600 text-pinkTheme text-center">
+        Đăng nhập
       </h1>
       <div className="mt-20">
-        <p className="uppercase font-500 my-[5px]">
+        <p className="font-500 my-[5px]">
           {" "}
-          <span className="text-red-500">*</span> account
+          <span className="text-red-500">*</span> Tài khoản
         </p>
         <Input
           register={register}
@@ -65,9 +65,9 @@ export const Logins = () => {
           type="text"
           placeholder=""
         />
-        <p className="uppercase font-500 my-[5px]">
+        <p className="font-500 my-[5px]">
           {" "}
-          <span className="text-red-500">*</span> password
+          <span className="text-red-500">*</span> Mật khẩu
         </p>
         <Input
           className=""
@@ -77,15 +77,15 @@ export const Logins = () => {
           name="matKhau"
           type="password"
         ></Input>
-        <p className="text-purple-500 mt-[5px]">Forgot your password ?</p>
+        <p className="text-pinkTheme mt-[5px]">Forgot your password ?</p>
         <div className="mt-40">
           {!isLoading ? (
             <div className="">
               <button
                 disabled={false}
-                className="text-white bg-purple-700  rounded-[5px] font-500  text-20 w-full p-10"
+                className="text-white bg-pinkTheme rounded-[5px] font-500  text-20 w-full p-10"
               >
-                Log in
+                Đăng nhập
               </button>
             </div>
           ) : (
@@ -105,38 +105,29 @@ export const Logins = () => {
         </div>
         <div className="mt-[10px]">
           <div className="grid grid-cols-3 gap-x-[10px]">
-            <div className="border border-gray-600 flex   items-center rounded-[5px] hover:bg-purple-500 transition-all hover:text-white cursor-pointer hover:border-purple-500 justify-center p-[10px]">
+            <div className="border border-gray-600 flex   items-center rounded-[5px] hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-[10px]">
               <GoogleOutlined className="text-[25px]" />
             </div>
-            <div className="border border-gray-600 flex items-center rounded-[5px] hover:bg-purple-500 transition-all hover:text-white cursor-pointer hover:border-purple-500 justify-center p-[10px]">
+            <div className="border border-gray-600 flex items-center rounded-[5px] hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-[10px]">
               <GithubOutlined className="text-[25px]" />
             </div>
-            <div className="border border-gray-600 flex items-center rounded-[5px] hover:bg-purple-500 transition-all hover:text-white cursor-pointer hover:border-purple-500 justify-center p-[10px]">
+            <div className="border border-gray-600 flex items-center rounded-[5px] hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-[10px]">
               <TwitterOutlined className="text-[25px]" />
             </div>
           </div>
         </div>
         <div className="my-[20px]">
           <div className="flex justify-center space-x-3 items-center">
-            <span className="text-gray-500">Don't have an account?</span>
+            <span className="text-gray-500">Chưa có tài khoản?</span>
             <span
               onClick={() => navigate(PATH.resgister)}
-              className="text-purple-600 text-[18px] underline cursor-pointer"
+              className="text-pinkTheme text-[18px] underline cursor-pointer"
             >
               {" "}
-              Sign up
+              Đăng ký
             </span>
           </div>
         </div>
-        {/* <p className="text-white p-[10px] font-700">
-          Chưa có tài khoản?
-          <span
-            className="text-blue-500 cursor-pointer"
-            onClick={() => navigate(PATH.resgister)}
-          >
-            Đăng ký
-          </span>
-        </p> */}
       </div>
     </form>
   );

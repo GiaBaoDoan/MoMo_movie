@@ -1,14 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { RegisterSchema } from "schema";
-import { quanLyNguoiDungService } from "services";
-import { toast } from "react-toastify";
+import { AccountSchemaType, RegisterSchema } from "schema";
+import { SubmitHandler, useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { PATH } from "constant";
 import { useState } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Input } from "components/ui";
+import { quanLyNguoiDungService } from "services";
+import { toast } from "react-toastify";
 
 export const Register = () => {
   const [isPending, setIsPending] = useState<boolean>(false);
@@ -21,7 +21,7 @@ export const Register = () => {
     resolver: zodResolver(RegisterSchema),
   });
   const navigate = useNavigate();
-  const onSubmit = async (value) => {
+  const onSubmit: SubmitHandler<AccountSchemaType> = async (value) => {
     try {
       setIsPending(true);
       let res = await quanLyNguoiDungService.register(value);
@@ -41,18 +41,16 @@ export const Register = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-[25px] pb-[100px] w-[1000px] rounded-[10px] bg-white"
+      className="p-[25px] pb-[100px] w-[800px] h-full rounded-br-xl rounded-tr-xl bg-white"
     >
       {/* <ToastContainer /> */}
-      <h1 className=" text-40 font-600 text-purple-700 text-center ">
-        Register
-      </h1>
+      <h1 className="text-3xl font-600 text-pinkTheme text-center ">Đăng ký</h1>
       <div className="mt-10">
         <div className="grid grid-cols-2 gap-x-[10px]">
           <div>
-            <p className="uppercase font-500 my-[5px]">
+            <p className="font-500 my-[5px]">
               {" "}
-              <span className="text-red-500">*</span> account
+              <span className="text-red-500">*</span> Tài khoản
             </p>
             <Input
               placeholder="Tài Khoản"
@@ -64,25 +62,24 @@ export const Register = () => {
             />
           </div>
           <div>
-            <p className="uppercase font-500 my-[5px]">
+            <p className="font-500 my-[5px]">
               {" "}
-              <span className="text-red-500">*</span> password
+              <span className="text-red-500">*</span> Mật khẩu
             </p>
             <Input
               placeholder="Mật khẩu"
               type="text"
               name="matKhau"
               error={errors?.matKhau?.message as string}
-              className="outline-none block w-full !mt-[0px] p-15 border text-white rounded-lg border-gray-800 focus:ring-blue-600"
               register={register}
             />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-x-[10px]">
           <div className="mt-10">
-            <p className="uppercase font-500 my-[5px]">
+            <p className="font-500 my-[5px]">
               {" "}
-              <span className="text-red-500">*</span> email
+              <span className="text-red-500">*</span> Email
             </p>
             <Input
               placeholder="Email"
@@ -92,12 +89,12 @@ export const Register = () => {
               className="outline-none block w-full p-15 border text-white rounded-lg border-gray-800 focus:ring-blue-600"
               register={register}
             />
-            <p className="text-red-600"> </p>
+            <p className="text-red-600"></p>
           </div>
           <div className="mt-10">
-            <p className="uppercase font-500 my-[5px]">
+            <p className="font-500 my-[5px]">
               {" "}
-              <span className="text-red-500">*</span> phone number
+              <span className="text-red-500">*</span> Số điện thoại
             </p>
             <Input
               placeholder="Số Điện Thoại"
@@ -111,9 +108,9 @@ export const Register = () => {
         </div>
         <div className="grid grid-cols-2 gap-x-[10px]">
           <div className="mt-10">
-            <p className="uppercase font-500 my-[5px]">
+            <p className="font-500 my-[5px]">
               {" "}
-              <span className="text-red-500">*</span> group id
+              <span className="text-red-500">*</span> Mã nhóm
             </p>
             <Input
               placeholder="Mã Nhóm"
@@ -125,9 +122,9 @@ export const Register = () => {
             />
           </div>
           <div className="mt-10">
-            <p className="uppercase font-500 my-[5px] ">
+            <p className="font-500 my-[5px] ">
               {" "}
-              <span className="text-red-500">*</span> username
+              <span className="text-red-500">*</span> Họ tên
             </p>
             <Input
               placeholder="Họ và tên"
@@ -152,7 +149,7 @@ export const Register = () => {
           ) : (
             <button
               disabled={false}
-              className="text-white bg-purple-700 font-500 rounded text-20 w-full mt-[10px] p-10"
+              className="text-white bg-pinkTheme font-500 rounded text-20 w-full mt-[10px] p-10"
             >
               Resgister
             </button>
@@ -160,10 +157,10 @@ export const Register = () => {
         </div>
         <div className="mt-5">
           <div className="flex justify-center space-x-3 items-center">
-            <span className="text-gray-500">Don't have an account?</span>
+            <span className="text-gray-500">Đã có tài khoản?</span>
             <span
               onClick={() => navigate(PATH.login)}
-              className="text-purple-600 text-[18px] underline cursor-pointer"
+              className="text-pinkTheme text-[18px] underline cursor-pointer"
             >
               {" "}
               Log in

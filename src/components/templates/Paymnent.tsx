@@ -15,6 +15,8 @@ const Paymnent = () => {
     (state: RootState) => state.getVePhimToolkit
   );
   const checkOut = async () => {
+    if (!localStorage.getItem("USER"))
+      return toast.error("Bạn cần phải đăng nhập");
     try {
       const res = await dispatch(
         DatVeThunk({
@@ -25,6 +27,7 @@ const Paymnent = () => {
         })
       );
       toast.success(res.payload);
+      navigate("/account");
     } catch (err: any) {
       console.log(err);
     }

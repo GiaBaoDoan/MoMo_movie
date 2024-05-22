@@ -23,11 +23,12 @@ export const Input = ({
       {name == "matKhau" ? (
         <div className="relative">
           <input
+            value={"Helo"}
             placeholder={placeholder}
             type={typeS ? "text" : "password"}
             className={` outline-none ${className}  ${
               error ? "border-red-500" : ""
-            } relative block w-full border p-5 rounded-lg`}
+            } relative block w-full border p-15 rounded-lg`}
             {...register(name)}
           ></input>
           {typeS ? (
@@ -52,7 +53,7 @@ export const Input = ({
           {...register(name)}
         ></input>
       )}
-      {error && <p className="text-red-500 text-[20px]"> *{error}</p>}
+      {error && <p className="text-red-500 text-[16px]"> *{error}</p>}
     </div>
   );
 };

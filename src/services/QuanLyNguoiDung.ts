@@ -7,8 +7,8 @@ const api = apiInstance({
     baseURL : import.meta.env.VITE_QUAN_LY_NGUOI_DUNG
 })
 export const quanLyNguoiDungService = {
-    register: (payload)=> api.post('/dangky',payload) ,
+    register: (payload)=> api.post('/dangky',payload),
     login : (payload) => api.post<ApiReponse<user>>('Dangnhap',payload),
     GetLichSuDatVe : () => api.post<ApiReponse<LichSuVeDat>>('/ThongTinTaiKhoan'),   
-    updateUser : (payload : AccountSchemaType | null) =>api.put('CapNhatThongTinNguoiDung',payload)
+    updateUser : (payload : AccountSchemaType | null) =>api.put<ApiReponse<AccountSchemaType>>('CapNhatThongTinNguoiDung',payload)
 }

@@ -38,19 +38,18 @@ export const router: RouteObject[] = [
         path: PATH.detail,
         element: <Details />,
       },
+    ],
+  },
+  {
+    element: <AuthLayout />,
+    children: [
       {
-        element: <AuthLayout />,
-        children: [
-          {
-            path: PATH.login,
-            element: <Logins />,
-          },
-
-          {
-            path: PATH.resgister,
-            element: <Register />,
-          },
-        ],
+        path: PATH.login,
+        element: <Logins />,
+      },
+      {
+        path: PATH.resgister,
+        element: <Register />,
       },
     ],
   },

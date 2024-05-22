@@ -5,7 +5,6 @@ export type heThongRapChieu = {
   logo: string;
   mahom: string;
 };
-
 export type LstCumRap = {
   danhSachPhim: DanhSachPhim[];
   maCumRap: string;

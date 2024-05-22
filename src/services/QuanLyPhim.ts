@@ -12,7 +12,6 @@ export const QuanLyPhimService = {
         return api.get<ApiReponse<ListFilm[]>>(`/LayDanhSachPhim?maNhom=GP01`)
         
     },
-    
     getBannerList : ()=> {
         return api.get<ApiReponse<Banner[]>>('/LayDanhSachBanner')
     },

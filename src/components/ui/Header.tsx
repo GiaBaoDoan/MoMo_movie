@@ -5,6 +5,7 @@ import { RootState } from "store";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Popover } from "antd";
+import { toast } from "react-toastify";
 const navContent = [
   "Trang chủ",
   "Lịch chiếu",
@@ -27,7 +28,16 @@ export const Header = () => {
       >
         Thông tin cá nhân
       </p>
-      <p className="hover:bg-black/10 p-3 cursor-pointer">Đăng xuất</p>
+      <p
+        onClick={() => {
+          localStorage.removeItem("USER");
+          toast.error("Đã Đăng xuất");
+          window.location.reload();
+        }}
+        className="hover:bg-black/10 p-3 cursor-pointer"
+      >
+        Đăng xuất
+      </p>
     </div>
   );
   const { user } = useSelector(

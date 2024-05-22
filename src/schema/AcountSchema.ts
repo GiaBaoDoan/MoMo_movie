@@ -2,12 +2,10 @@ import { z } from "zod";
 import validator from 'validator';
 export const AccountSchema = z.object({
     taiKhoan : z.string().nonempty('Vui lòng nhập tài khoản').max(20,'Nhập tối đa 20 ký tự').min(3,'nhập tối thiểu 3 ký tự'),
-    email : z.string().nonempty('Vui lòng nhập email').email('email không tồn tại '),
-    soDt : z.string().nonempty('Vui lòng nhập số điện thoại').refine(validator.isMobilePhone,{
-        message: 'Số điện thoại không hợp lệ',
-      }),
+    email : z.string().nonempty('Vui lòng nhập email').email('email không tồn tại'),
+    soDt : z.string().nonempty('Vui lòng nhập số điện thoại').refine(validator.isMobilePhone,{message: 'Số điện thoại không hợp lệ',}),
     maNhom : z.string().nonempty('Vui lòng nhập số mã nhóm'),
-  hoTen : z.string().nonempty('Vui lòng nhập số họ tên'),
+    hoTen : z.string().nonempty('Vui lòng nhập số họ tên'),
     matKhau :  z.string().nonempty('Vui lòng nhập mật khẩu'),
     maLoaiNguoiDung : z.string().nonempty('Vui lòng nhập mã người dùng'),
 })

@@ -3,7 +3,6 @@
 // import styled from "styled-components";
 // import { useSelector } from "react-redux";
 // import { RootState, useAppDispatch } from "store";
-import { getLichSuDatVeThunk } from "store/GetLichSuVeDat/Thunk";
 // import { Button, Input } from "components/ui";
 // import { SubmitHandler, useForm } from "react-hook-form";
 // import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,8 +12,8 @@ import { getLichSuDatVeThunk } from "store/GetLichSuVeDat/Thunk";
 // import moment from "moment";
 // import { useNavigate } from "react-router-dom";
 // import { PATH } from "constant";
-
 import { useEffect, useRef, useState } from "react";
+import { getLichSuDatVeThunk } from "store/GetLichSuVeDat/Thunk";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "store";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,7 +21,6 @@ import { Navigation, Pagination } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-
 import moment from "moment";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,6 +29,7 @@ import { upDateThunk } from "store/CapNhatNguoiDung/Thunk";
 import { InforSchema, InforSchemaType } from "schema/InforSchema";
 import Loading from "components/ui/Loading";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 // const AccountTemplates = () => {
 //   const navigate = useNavigate();
@@ -250,6 +249,7 @@ const AccountTemplates = () => {
   const { LichSuDatVe, isLoading } = useSelector(
     (state: RootState) => state.LichSuVeToolkit
   );
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   // handelForm
   const {
@@ -270,15 +270,14 @@ const AccountTemplates = () => {
     await dispatch(
       upDateThunk({
         ...data,
-        maNhom: "GP00",
-        taiKhoan: "GiaBaoDoan123",
-        maLoaiNguoiDung: "khachHang",
-        matKhau: "giabaod2003",
+        maNhom: LichSuDatVe?.maNhom,
+        taiKhoan: LichSuDatVe?.taiKhoan,
+        maLoaiNguoiDung: LichSuDatVe?.maLoaiNguoiDung,
+        matKhau: LichSuDatVe?.matKhau,
       })
     );
     dispatch(getLichSuDatVeThunk());
   };
-
   const heartIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -315,6 +314,7 @@ const AccountTemplates = () => {
   );
   useEffect(() => {
     dispatch(getLichSuDatVeThunk());
+    if (!localStorage.getItem("USER")) return navigate("/login");
   }, []);
   if (isLoading) return <Loading />;
   return (
@@ -343,7 +343,7 @@ const AccountTemplates = () => {
                     : {maVe?.thoiLuongPhim} phút
                   </span>
                 </p>
-                <p className="">
+                <p>
                   <span>Ghế bạn chọn: </span>
                   {maVe?.danhSachGhe.map((ghe) => {
                     return (
@@ -455,8 +455,11 @@ const AccountTemplates = () => {
                 </p>
                 <span>{penIcon}</span>
               </div>
-              <div onClick={handleSubmit(onSubmit)} className="">
-                <button className="bg-pinkTheme  hover:bg-pink-700 px-5 py-3 text-white font-medium rounded">
+              <div>
+                <button
+                  onClick={handleSubmit(onSubmit)}
+                  className="bg-pinkTheme  hover:bg-pink-700 px-5 py-3 text-white font-medium rounded"
+                >
                   Cập nhật
                 </button>
               </div>
