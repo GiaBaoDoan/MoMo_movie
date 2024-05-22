@@ -5,7 +5,6 @@ type InputProps = {
   register?: UseFormRegister<any>;
   error?: string;
   name?: string;
-  value: string;
   className?: string;
   placeholder?: string;
   type: HTMLInputTypeAttribute;
@@ -14,7 +13,6 @@ export const Input = ({
   register,
   error,
   name,
-  value,
   className,
   placeholder,
   type,
@@ -48,7 +46,6 @@ export const Input = ({
         <input
           placeholder={placeholder}
           type={type}
-          value={value}
           className={` outline-none  ${
             error ? "border-red-500" : ""
           } relative block w-full border p-15 rounded-lg`}

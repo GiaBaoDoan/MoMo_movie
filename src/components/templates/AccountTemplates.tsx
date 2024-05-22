@@ -165,7 +165,6 @@ const AccountTemplates = () => {
                   <span className="font-medium">{LichSuDatVe?.hoTen}</span>
                   <div className="mt-3">
                     <Input
-                      value={LichSuDatVe?.hoTen}
                       name="hoTen"
                       register={register}
                       error={errors?.hoTen?.message as string}
@@ -180,7 +179,6 @@ const AccountTemplates = () => {
                   <span className="font-medium">{LichSuDatVe?.email}</span>
                   <div className="mt-3">
                     <Input
-                      value={""}
                       name="email"
                       register={register}
                       error={errors?.email?.message as string}
@@ -196,7 +194,6 @@ const AccountTemplates = () => {
                   <span className="font-medium">{LichSuDatVe?.soDT}</span>
                   <div className="mt-3">
                     <Input
-                      value={LichSuDatVe.soDT}
                       name="soDt"
                       register={register}
                       error={errors?.soDt?.message as string}

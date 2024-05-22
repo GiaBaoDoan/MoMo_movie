@@ -59,7 +59,6 @@ export const Logins = () => {
           <span className="text-red-500">*</span> Tài khoản
         </p>
         <Input
-          value=""
           register={register}
           error={errors?.taiKhoan?.message as string}
           name="taiKhoan"
@@ -72,7 +71,6 @@ export const Logins = () => {
         </p>
         <Input
           className=""
-          value=""
           register={register}
           error={errors?.matKhau?.message as string}
           placeholder=""
