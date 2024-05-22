@@ -70,7 +70,21 @@ const CheckoutTemplate = () => {
         >
           {ghe.daDat ? (
             classGheDuocUserDat != "" ? (
-              <UserOutlined />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                color="rgba(59 130 246)"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-check w-full"
+              >
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
             ) : (
               <CloseOutlined />
             )
@@ -145,7 +159,21 @@ const CheckoutTemplate = () => {
                       </td>
                       <td className="text-center">
                         <button className="ghe gheDuocUserLoginDat">
-                          <UserOutlined />
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            color="rgba(59 130 246)"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="lucide lucide-check w-full"
+                          >
+                            <path d="M20 6 9 17l-5-5" />
+                          </svg>
                         </button>
                       </td>
                     </tr>
@@ -283,8 +311,9 @@ const Checkout = styled.div`
   }
   /*  ghế được chính mình đặt*/
   .gheDuocUserLoginDat {
-    background-color: rgba(255 55 65);
+    border: 2px solid rgba(59 130 246) !important;
     opacity: 1;
+    background-color: transparent;
   }
   .gheKhachDangDat {
     background-color: rgba(242, 25, 191);

@@ -13,8 +13,6 @@ import LayThongTinPhimSlice from './LayThongTinPhim/Slice.tsx'
 import CapNhatPhimSlice from './CapNhatFilm/slice.tsx'
 import XoaPhimSlice from './XoaPhim/Slice.tsx'
 import CapNhatNguoiDungSlice from './CapNhatNguoiDung/Slice.tsx'
-import setUpNgonNguSlice from './Language/Slice.tsx'
-
 
 export const rootReducer = combineReducers({
     quanLyNguoiDungToolkit : quanLyNguoiDungReducer,
@@ -31,8 +29,4 @@ export const rootReducer = combineReducers({
     CapNhatPhimToolkit : CapNhatPhimSlice,
     XoaPhimToolKit : XoaPhimSlice,
     CapNhatNguoiDungToolKit : CapNhatNguoiDungSlice, 
-    setUpNgonNguToolkit : setUpNgonNguSlice,
-    
-
-    
 })

@@ -53,6 +53,7 @@ export const Register = () => {
               <span className="text-red-500">*</span> Tài khoản
             </p>
             <Input
+              value=""
               placeholder="Tài Khoản"
               type="text"
               name="taiKhoan"
@@ -67,6 +68,7 @@ export const Register = () => {
               <span className="text-red-500">*</span> Mật khẩu
             </p>
             <Input
+              value=""
               placeholder="Mật khẩu"
               type="text"
               name="matKhau"
@@ -82,6 +84,7 @@ export const Register = () => {
               <span className="text-red-500">*</span> Email
             </p>
             <Input
+              value=""
               placeholder="Email"
               type="text"
               name="email"
@@ -97,6 +100,7 @@ export const Register = () => {
               <span className="text-red-500">*</span> Số điện thoại
             </p>
             <Input
+              value=""
               placeholder="Số Điện Thoại"
               type="text"
               name="soDt"
@@ -113,6 +117,7 @@ export const Register = () => {
               <span className="text-red-500">*</span> Mã nhóm
             </p>
             <Input
+              value=""
               placeholder="Mã Nhóm"
               type="text"
               name="maNhom"
@@ -127,6 +132,7 @@ export const Register = () => {
               <span className="text-red-500">*</span> Họ tên
             </p>
             <Input
+              value=""
               placeholder="Họ và tên"
               type="text"
               error={errors?.hoTen?.message as string}

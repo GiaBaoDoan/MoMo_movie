@@ -9,7 +9,6 @@ const initialState :QuanLyNguoiDung = {
    user : JSON.parse(localStorage.getItem('USER')) ,
    isLoading :false
 }
-
 const quanLyNguoiDungReducer = createSlice({
   name: 'quanlynguoidung',
   initialState,

@@ -113,7 +113,10 @@ export const Header = () => {
               <button className="border-black/80 border text-base hover:bg-black/80 hover:text-white text-black/80 rounded-full p-2 px-5">
                 Đăng ký
               </button>
-              <button className="bg-pinkTheme font-500 text-base text-white rounded-full p-2 px-5">
+              <button
+                onClick={() => navigate("/login")}
+                className="bg-pinkTheme font-500 text-base text-white rounded-full p-2 px-5"
+              >
                 Đăng nhập
               </button>
             </div>
