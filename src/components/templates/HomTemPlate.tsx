@@ -27,6 +27,7 @@ import Loading from "components/ui/Loading";
 export const HomTemPlate = () => {
   const dispatch = useAppDispatch();
   const [isOpen, setOpen] = useState(false);
+  const [trailer, setTrailer] = useState("");
   const { listFilm, isFetchMovie } = useSelector(
     (state: RootState) => state.quanLyPhimToolKit
   );
@@ -38,7 +39,7 @@ export const HomTemPlate = () => {
     {
       title: "Mới nhất",
       content: (
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-4 font-open-sans gap-5">
           {News.map((item, index) => {
             return (
               <div key={index} className="space-y-3 cursor-pointer">
@@ -60,7 +61,7 @@ export const HomTemPlate = () => {
     {
       title: "Xem nhiều nhất",
       content: (
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-4 gap-5 font-open-sans">
           {TopViews.map((item, index) => {
             return (
               <div key={index} className="space-y-3 cursor-pointer">
@@ -80,7 +81,6 @@ export const HomTemPlate = () => {
       ),
     },
   ];
-  const [trailer, setTrailer] = useState("");
   useEffect(() => {
     dispatch(getListFilmThunk(""));
     dispatch(getBannerList());
@@ -353,6 +353,105 @@ export const HomTemPlate = () => {
           </div>
         </div>
       </section>
+      {/*  */}
+      <section className="py-24 w-[90%] mx-auto">
+        <h3 className="text-4xl text-center font-bold text-pinkTheme">
+          Đặt mua vé xem phim trên MoMo
+        </h3>
+        <div className="flex justify-center items-center">
+          <p className="text-xl w-[85%] mt-5 font-500s">
+            Việc đặt vé xem phim chưa bao giờ đơn giản và dễ dàng như thế, chỉ
+            với vài thao tác trên màn hình điện thoại bạn đã có thể đặt vé xem
+            bộ phim mình yêu thích mà không phải xếp hàng tại rạp. Ví MoMo đã
+            liên kết tất cả các rạp chiếu phim lớn trên cả nước, rạp nào bạn
+            thích Ví MoMo cũng có. Giá vé xem phim luôn ở mức giá cực kì tốt là
+            một “đặc sản” với những ưu đãi độc quyền mà chỉ có ở “Mua Vé Xem
+            Phim” của Ví MoMo. <br /> <br /> Nay buổi xem{" "}
+            <span className="font-bold text-pinkTheme">phim chiếu rạp</span> của
+            bạn sẽ càng tuyệt vời hơn với tính năng mua bắp nước trước khi đến
+            rạp, bạn sẽ đa dạng hoá các món bắp hay thức uống mà bạn yêu thích,
+            tạo bất ngờ cho bạn đồng hành bằng những combo cực chất lượng đến từ
+            các{" "}
+            <span className="text-pinkTheme font-bold">rạp chiếu phim.</span>
+            <p className="mt-5 font-bold text-2xl text-pinkTheme">
+              Giá vé rạp chiếu phim (Phim 2D - dành cho người lớn)
+            </p>
+            <table className="border w-full mt-5">
+              <thead>
+                <tr className="text-pinkTheme">
+                  <th>Rạp</th>
+                  <th>Thứ 2</th>
+                  <th>Thứ 3</th>
+                  <th>Thứ 4</th>
+                  <th>Thứ 5</th>
+                  <th>Thứ 6</th>
+                  <th>Thứ 7</th>
+                  <th>Chủ nhật</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="text-center">
+                  <td className="rap text-pinkTheme">Galaxys</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                </tr>
+                <tr className="text-center">
+                  <td className="rap text-pinkTheme">CGV</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                </tr>
+                <tr className="text-center">
+                  <td className="rap text-pinkTheme">BHD</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                </tr>
+                <tr className="text-center">
+                  <td className="rap text-pinkTheme">Lotte Cinema</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                </tr>
+                <tr className="text-center">
+                  <td className="rap text-pinkTheme">Cinestar</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                  <td>70K - 85K</td>
+                </tr>
+              </tbody>
+            </table>
+            <p className="text-xl mt-5">
+              Hy vọng rằng những trải nghiệm đặt vé xem phim, tra cứu lịch chiếu
+              phim nhanh, tiện lợi với mức giá tốt sẽ là món ăn tinh thần tuyệt
+              vời dành cho người dùng của Ví MoMo. Đặt vé xem phim online chưa
+              bao giờ dễ dàng và chuyên nghiệp như thế khi có Ví MoMo đồng hành
+              cùng bạn!
+            </p>
+          </p>
+        </div>
+      </section>
     </Homtemplate>
   );
 };
@@ -360,6 +459,14 @@ const Homtemplate = styled.div`
   .ant-tabs .ant-tabs-ink-bar {
     background-color: rgba(216, 45, 139, 1);
     height: 3px !important;
+  }
+  td,
+  th {
+    padding: 10px;
+    border: 1px solid lightgray;
+  }
+  .rap {
+    font-weight: bold;
   }
   .swiper-button-prev {
     color: black;

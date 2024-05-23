@@ -13,7 +13,7 @@ export const AuthLayout = () => {
         <div className="fixed top-0 left-0 w-full h-full bg-black z-10 opacity-50 "></div>
         <div className="w-full h-full flex justify-center items-center">
           <div className="absolute p-[20px]  z-20 rounded-md  mt-12 ">
-            <section className="flex h-[700px]  items-center">
+            <section className="flex max-lg:flex-col h-[700px]  items-center">
               <div className="h-full">
                 <img
                   src="

@@ -9,7 +9,9 @@ export default {
         blackTheme: "rgba(82, 82, 82, 1)",
       },
       fontFamily: {
-        "my-font": "Montserrat",
+        montserrat: "Montserrat",
+        popins: "Poppins",
+        "open-sans": "Space Grotesk",
       },
       fontSize: {
         10: "10px",

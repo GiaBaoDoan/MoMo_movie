@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { RootState, useAppDispatch } from "store";
 import { getVePhim } from "store/GetDanhSachDatVe/Thunk";
 import { DatVeThunk } from "store/ThongTinDatVe/Thunk";
+import Swal from "sweetalert2";
 const Paymnent = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -18,7 +19,7 @@ const Paymnent = () => {
     if (!localStorage.getItem("USER"))
       return toast.error("Bạn cần phải đăng nhập");
     try {
-      const res = await dispatch(
+      await dispatch(
         DatVeThunk({
           maLichChieu: item?.id,
           danhSachVe: item.danhSachGheDangDat?.map((item) => {
@@ -26,11 +27,30 @@ const Paymnent = () => {
           }),
         })
       );
-      toast.success(res.payload);
+      Swal.fire({
+        title: "Hoàn tất thanh toán",
+        text: "Cùng trải nghiệm buổi xem phim bất tận nào!!s",
+        icon: "success",
+      });
       navigate("/account");
     } catch (err: any) {
       console.log(err);
     }
+  };
+  const handelCheckOut = () => {
+    Swal.fire({
+      title: "Xác nhận mua vé?",
+      text: "Bạn đồng ý với các thông tin vé phim!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "Bỏ qua",
+      confirmButtonText: "Tôi đồng ý",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        checkOut();
+      }
+    });
   };
   useEffect(() => {
     if (!item) {
@@ -162,12 +182,12 @@ const Paymnent = () => {
               </div>
               <div className="flex justify-center flex-col space-y-3">
                 <button
-                  onClick={checkOut}
+                  onClick={handelCheckOut}
                   className="bg-green-600 w-full text-white px-5 py-[6px] hover:bg-green-700 transition-all  rounded-full"
                 >
                   Thanh toán
                 </button>
-                <button>Quay lại</button>
+                <button onClick={() => navigate("/")}>Quay lại</button>
               </div>
             </div>
             <div className="text-center">

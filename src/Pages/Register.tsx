@@ -135,7 +135,6 @@ export const Register = () => {
             />
           </div>
         </div>
-
         <div className="mt-10">
           {isPending ? (
             <button

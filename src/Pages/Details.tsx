@@ -62,7 +62,6 @@ const Details = () => {
     );
   };
   if (isFetchDetail) return <Loading />;
-
   return (
     <section>
       <ModalVideo
@@ -118,7 +117,7 @@ const Details = () => {
           >
             <path d="m9 18 6-6-6-6" />
           </svg>
-          <p className="text-lg font-medium uppercase text-blackTheme ">
+          <p className="text-lg font-medium uppercase text-pinkTheme">
             {DetailFilm?.tenPhim}
           </p>
         </div>
@@ -403,7 +402,9 @@ const Details = () => {
 
                                       <button
                                         onClick={() =>
-                                          navigate(`${rapChieu.lichChieuPhim}`)
+                                          navigate(
+                                            `/checkout/${rapChieu.lichChieuPhim[0].maLichChieu}`
+                                          )
                                         }
                                         className="bg-pinkTheme hover:bg-pink-700  font-medium text-white px-3 rounded"
                                       >

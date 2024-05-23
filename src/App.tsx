@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="font-my-font">
+    <div className="!font-open-sans">
       <ToastContainer style={{ marginTop: "80px" }} />
       {useRoutes(router)}
     </div>

@@ -14,7 +14,12 @@ import AddFilm from "Pages/Amin/AddFilm";
 import EditFilm from "Pages/Amin/EditFilm";
 import Account from "Pages/Account";
 import Paymnent from "components/templates/Paymnent";
+import NotFoundPage from "Pages/NotFoundPage";
 export const router: RouteObject[] = [
+  {
+    element: <NotFoundPage />,
+    path: "*",
+  },
   {
     element: <MainLayout />,
     children: [

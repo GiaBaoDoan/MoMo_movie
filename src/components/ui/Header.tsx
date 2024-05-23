@@ -18,7 +18,7 @@ export const Header = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const content = (
-    <div className="text-lg font-medium">
+    <div className="text-lg font-medium font-open-sans">
       <p
         onClick={() => {
           navigate("/account");
@@ -110,7 +110,10 @@ export const Header = () => {
           })}
           {!user ? (
             <div className="flex space-x-3">
-              <button className="border-black/80 border text-base hover:bg-black/80 hover:text-white text-black/80 rounded-full p-2 px-5">
+              <button
+                onClick={() => navigate("/resgister")}
+                className="border-black/80 border text-base hover:bg-black/80 hover:text-white text-black/80 rounded-full p-2 px-5"
+              >
                 Đăng ký
               </button>
               <button

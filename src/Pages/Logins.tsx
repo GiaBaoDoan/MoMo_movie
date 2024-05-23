@@ -63,24 +63,23 @@ export const Logins = () => {
           error={errors?.taiKhoan?.message as string}
           name="taiKhoan"
           type="text"
-          placeholder=""
+          placeholder="Tài khoản"
         />
         <p className="font-500 my-[5px]">
           {" "}
           <span className="text-red-500">*</span> Mật khẩu
         </p>
         <Input
-          className=""
           register={register}
           error={errors?.matKhau?.message as string}
-          placeholder=""
+          placeholder="Mật khẩu"
           name="matKhau"
           type="password"
         ></Input>
-        <p className="text-pinkTheme mt-[5px]">Forgot your password ?</p>
+        <p className="text-pinkTheme text-right mt-5">Quên mật khẩu?</p>
         <div className="mt-40">
           {!isLoading ? (
-            <div className="">
+            <div>
               <button
                 disabled={false}
                 className="text-white bg-pinkTheme rounded-[5px] font-500  text-20 w-full p-10"

@@ -301,7 +301,7 @@ const Checkout = styled.div`
   /* ghế được người khác đặt */
   .gheDaDat {
     cursor: no-drop;
-    opacity: 0.7;
+    opacity: 0.8;
   }
   .gheDangDat {
     background-color: rgba(59 130 246) !important;
