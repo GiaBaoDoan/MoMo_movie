@@ -19,14 +19,14 @@ const CardFilm = ({ film, index, width, height, setTrailer, setOpen }) => {
           </button>
         )}
 
-        <div className="h-[420px] transition-all overflow-hidden relative ">
+        <div className="h-[420px] max-lg:h-[300px] transition-all overflow-hidden relative ">
           <div
             className="h-full"
             onClick={() => navigate(`/details/${film.maPhim}`)}
           >
             <img
               style={{ height, width }}
-              className=" hover:scale-105 h-full w-full transition-all object-cover z-1 rounded"
+              className="hover:scale-105 h-full w-full transition-all object-cover z-1 rounded"
               src={film.hinhAnh}
               alt=""
             />

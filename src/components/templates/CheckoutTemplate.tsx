@@ -107,11 +107,8 @@ const CheckoutTemplate = () => {
                   {danhSachVe?.thongTinPhim?.gioChieu}
                 </span>
               </p>
-              <div
-                style={{ border: "1px solid rgba(255,65,1)" }}
-                className="font-medium border py-2 px-5  rounded-lg text-xl"
-              >
-                <p className="text-[rgba(255,65,1)] flex space-x-3 items-center">
+              <div className="font-medium border border-pinkTheme py-2 px-5  rounded-lg text-xl">
+                <p className="text-pinkTheme flex space-x-3 items-center">
                   {" "}
                   <span>Ghế sẽ tự hủy sau:</span>{" "}
                   <span>
@@ -129,7 +126,7 @@ const CheckoutTemplate = () => {
               <p className="font-bold py-5 text-xl">
                 Rạp chiếu {danhSachVe?.thongTinPhim.tenRap}
               </p>
-              <div className="mx-auto grid grid-cols-12">{renderSeats()}</div>
+              <div className="mx-auto grid grid-cols-10">{renderSeats()}</div>
               <div className="mt-5 flex justify-center">
                 <table>
                   <thead>
@@ -266,10 +263,10 @@ const CheckoutTemplate = () => {
                   <button
                     disabled={danhSachGheDangDat.length ? false : true}
                     onClick={handelPayment}
-                    className={`border px-5 py-3  ${
+                    className={`px-5 py-3  ${
                       danhSachGheDangDat.length
-                        ? "bg-green-500 hover:bg-green-600 cursor-pointer border-green-500"
-                        : "cursor-no-drop bg-gray-400 border-gray-400 border"
+                        ? "bg-green-500 hover:bg-green-600 cursor-pointer"
+                        : "cursor-no-drop bg-gray-400"
                     } text-white  rounded-full `}
                   >
                     <span className="font-medium">Thanh toán</span>
@@ -307,7 +304,7 @@ const Checkout = styled.div`
     background-color: rgba(59 130 246) !important;
   }
   .gheVip {
-    background-color: rgba(255 132 19);
+    background-color: rgba(216 45 139);
   }
   /*  ghế được chính mình đặt*/
   .gheDuocUserLoginDat {

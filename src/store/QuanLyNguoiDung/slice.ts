@@ -21,7 +21,12 @@ const quanLyNguoiDungReducer = createSlice({
         localStorage.setItem('USER',JSON.stringify(payload))
       }
     })
-
+    builder.addCase(LoginThunk.rejected,(state) =>{
+      state.isLoading = false;
+    })
+    builder.addCase(LoginThunk.pending,(state) => {
+        state.isLoading = true;
+    })
   }
 });
 

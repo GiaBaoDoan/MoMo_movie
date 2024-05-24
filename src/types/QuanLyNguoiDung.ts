@@ -7,4 +7,3 @@ export  type user = {
     maLoaiNguoiDung: string;
     accessToken:     string;
 }
-

@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { LoginSchemaType } from "schema/LoginSchema";
 import { quanLyNguoiDungService } from "services";
-import { user } from "types/QuanLyNguoiDung";
-
-export const LoginThunk = createAsyncThunk('quanlynguoidung/loginThunk',async(payload :user,{rejectWithValue}) =>{
+export const LoginThunk = createAsyncThunk('quanlynguoidung/loginThunk',async(payload :LoginSchemaType,{rejectWithValue}) =>{
     try {
-        const data = await quanLyNguoiDungService.login(payload) 
-        return data.data.content
+        const res = await quanLyNguoiDungService.login(payload) 
+        return res.data.content
     }
     catch(err) {
         return rejectWithValue(err)

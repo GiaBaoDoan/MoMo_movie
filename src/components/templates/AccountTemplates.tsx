@@ -21,6 +21,8 @@ const AccountTemplates = () => {
   );
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const modalRef = useRef<HTMLDialogElement>(null);
+  const [maVe, setMaVe] = useState<any>();
   const {
     handleSubmit,
     register,
@@ -33,8 +35,6 @@ const AccountTemplates = () => {
     modalRef?.current?.showModal();
     setMaVe(phim);
   };
-  const modalRef = useRef<HTMLDialogElement>(null);
-  const [maVe, setMaVe] = useState<any>();
   const onSubmit: SubmitHandler<InforSchemaType> = async (data) => {
     await dispatch(
       upDateThunk({

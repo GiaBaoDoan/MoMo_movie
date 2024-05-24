@@ -5,7 +5,6 @@ type message = {
   alert?: string;
 };
 const initialState: message = {};
-
 const XoaPhimSlice = createSlice({
   name: "XoaPhim",
   initialState,

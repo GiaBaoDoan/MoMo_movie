@@ -37,21 +37,36 @@ export const HomTemPlate = () => {
   );
   const titles = [
     {
-      title: "Mới nhất",
+      title: <span className="max-sm:text-lg">Mới nhất</span>,
       content: (
-        <div className="grid grid-cols-4 font-open-sans gap-5">
+        <div className="grid grid-cols-4 max-xl:grid-cols-2 max-lg:grid-cols-1 font-open-sans gap-5">
           {News.map((item, index) => {
             return (
-              <div key={index} className="space-y-3 cursor-pointer">
-                <img className="rounded-lg" src={item.img} alt="" />
-                <h4 className="font-bold hover:text-pinkTheme text-2xl text-left">
-                  {item.title}
-                </h4>
-                <p className="text-left ">
-                  <span className=" text-xl text-gray-500">
-                    {item.views} lượt xem
-                  </span>
-                </p>
+              <div>
+                <div
+                  key={index}
+                  className="lg:space-y-3 max-lg:flex flex-row-reverse justify-between items-center cursor-pointer"
+                >
+                  <img
+                    className="rounded-lg  max-lg:w-[200px] object-cover max-sm:h-[80px] max-sm:w-[120px]"
+                    src={item.img}
+                    alt=""
+                  />
+                  <div className="pr-3 space-y-3">
+                    <h4 className="font-bold max-sm:text-lg hover:text-pinkTheme text-2xl text-left">
+                      {item.title}
+                    </h4>
+                    <p className="text-left">
+                      <span className="text-xl max-sm:text-base text-gray-500">
+                        {item.views} lượt xem
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div className="lg:hidden">
+                  <br />
+                  <hr />
+                </div>
               </div>
             );
           })}
@@ -59,21 +74,38 @@ export const HomTemPlate = () => {
       ),
     },
     {
-      title: "Xem nhiều nhất",
+      title: <span className="max-sm:text-lg">Xem nhiều nhất</span>,
       content: (
-        <div className="grid grid-cols-4 gap-5 font-open-sans">
+        <div className="grid grid-cols-4 max-xl:grid-cols-2 max-lg:grid-cols-1 gap-5 font-open-sans">
           {TopViews.map((item, index) => {
             return (
-              <div key={index} className="space-y-3 cursor-pointer">
-                <img className="rounded-lg" src={item.img} alt="" />
-                <h4 className="font-bold hover:text-pinkTheme text-2xl text-left">
-                  {item.title}
-                </h4>
-                <p className="text-left ">
-                  <span className=" text-xl text-gray-500">
-                    {item.views} lượt xem
-                  </span>
-                </p>
+              <div>
+                <div
+                  key={index}
+                  className="lg:space-y-3 max-lg:flex justify-between flex-row-reverse items-center cursor-pointer"
+                >
+                  <div>
+                    <img
+                      className="rounded-lg object-cover max-sm:h-[80px] max-sm:w-[120px] max-lg:w-[200px]"
+                      src={item.img}
+                      alt=""
+                    />
+                  </div>
+                  <div className="pr-3 space-y-3">
+                    <h4 className="font-bold max-sm:text-lg hover:text-pinkTheme text-2xl text-left">
+                      {item.title}
+                    </h4>
+                    <p className="text-left">
+                      <span className=" text-xl max-sm:text-base text-gray-500">
+                        {item.views} lượt xem
+                      </span>
+                    </p>
+                  </div>
+                </div>
+                <div className="lg:hidden">
+                  <br />
+                  <hr />
+                </div>
               </div>
             );
           })}
@@ -91,7 +123,7 @@ export const HomTemPlate = () => {
   // loading page
   if (isFetchMovie) return <Loading />;
   return (
-    <Homtemplate className="relative">
+    <Homtemplate className="relative overflow-hidden">
       <ModalVideo
         channel="youtube"
         youtube={{ mute: 0, autoplay: 0 }}
@@ -102,7 +134,7 @@ export const HomTemPlate = () => {
       {/* banner */}
       <BannerMovie />
       <section className="bg-pinkTheme bg-opacity-10">
-        <div className="py-28 flex justify-between items-center w-[90%] mx-auto">
+        <div className="py-24 max-lg:py-12 flex justify-between max-lg:flex-col max-lg:space-y-5 items-center w-[90%] mx-auto">
           <div>
             <h2 className="text-5xl text-pinkTheme font-bold">
               Đặt mua vé xem phim MoMo
@@ -250,8 +282,24 @@ export const HomTemPlate = () => {
           navigation={true}
           pagination={true}
           modules={[Navigation, Pagination]}
-          slidesPerView={5}
+          slidesPerView={3}
           spaceBetween={20}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 480px
+            480: {
+              slidesPerView: 2,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+          }}
           className="mx-auto mt-14 text-white flex justify-center w-[90%]"
         >
           {listFilm?.map((film, index) => {
@@ -279,8 +327,24 @@ export const HomTemPlate = () => {
           navigation={true}
           pagination={true}
           modules={[Navigation]}
-          slidesPerView={5}
+          slidesPerView={3}
           spaceBetween={20}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 480px
+            480: {
+              slidesPerView: 2,
+            },
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 3,
+            },
+            1024: {
+              slidesPerView: 5,
+            },
+          }}
           className="mx-auto mt-14 text-black flex justify-center w-[90%]"
         >
           {listFilm?.map((film, index) => {
@@ -310,15 +374,15 @@ export const HomTemPlate = () => {
       <Sale />
       <Event />
       {/* hệ thống rạp phim sẵn có */}
-      <section className="py-24 bg-slate-50">
-        <h2 className="text-pinkTheme text-center text-4xl font-bold">
-          Hệ thống rạp chiếu phim
-        </h2>
-        <p className="text-blackTheme text-center text-2xl mt-5">
-          Danh sách hệ thống rạp chiếu phim lớn có mặt khắp cả nước
-        </p>
+      <section className="py-24 max-lg:py-12 bg-slate-50">
         <div className="w-[90%] mx-auto">
-          <div className="grid grid-cols-2 py-12 gap-12">
+          <h2 className="text-pinkTheme text-center text-4xl max-sm:text-2xl font-bold">
+            Hệ thống rạp chiếu phim
+          </h2>
+          <p className="text-blackTheme text-center text-2xl max-sm:text-lg mt-5">
+            Danh sách hệ thống rạp chiếu phim lớn có mặt khắp cả nước
+          </p>
+          <div className="grid grid-cols-2 max-lg:grid-cols-1 py-12 gap-12">
             {heThong.map((rap, i) => {
               return <ListCardRap rap={rap} key={i} />;
             })}
@@ -326,10 +390,12 @@ export const HomTemPlate = () => {
         </div>
       </section>
       {/* blog film ảnh */}
-      <section className="bg-pinkTheme py-24 bg-opacity-10">
+      <section className="bg-pinkTheme py-24 max-lg:py-12 bg-opacity-10">
         <div className="text-center w-[90%] mx-auto">
-          <h3 className="font-bold  text-4xl text-pinkTheme">Blog phim ảnh</h3>
-          <p className="text-blackTheme mt-5 text-2xl">
+          <h3 className="font-bold  text-4xl max-sm:text-2xl text-pinkTheme">
+            Blog phim ảnh
+          </h3>
+          <p className="text-blackTheme mt-5 text-2xl max-sm:text-lg">
             Tổng hợp và Review các bộ phim hot, bom tấn, phim chiếu rạp hay mỗi
             ngày
           </p>
@@ -354,12 +420,12 @@ export const HomTemPlate = () => {
         </div>
       </section>
       {/*  */}
-      <section className="py-24 w-[90%] mx-auto">
-        <h3 className="text-4xl text-center font-bold text-pinkTheme">
+      <section className="py-24 max-lg:py-12 w-[90%] mx-auto">
+        <h3 className="text-4xl max-sm:text-2xl text-center font-bold text-pinkTheme">
           Đặt mua vé xem phim trên MoMo
         </h3>
         <div className="flex justify-center items-center">
-          <p className="text-xl w-[85%] mt-5 font-500s">
+          <p className="text-xl w-[85%] max-sm:text-lg max-lg:w-full mt-5 font-500s">
             Việc đặt vé xem phim chưa bao giờ đơn giản và dễ dàng như thế, chỉ
             với vài thao tác trên màn hình điện thoại bạn đã có thể đặt vé xem
             bộ phim mình yêu thích mà không phải xếp hàng tại rạp. Ví MoMo đã
@@ -373,76 +439,78 @@ export const HomTemPlate = () => {
             tạo bất ngờ cho bạn đồng hành bằng những combo cực chất lượng đến từ
             các{" "}
             <span className="text-pinkTheme font-bold">rạp chiếu phim.</span>
-            <p className="mt-5 font-bold text-2xl text-pinkTheme">
+            <p className="mt-5 font-bold text-2xl max-sm:text-xl text-pinkTheme">
               Giá vé rạp chiếu phim (Phim 2D - dành cho người lớn)
             </p>
-            <table className="border w-full mt-5">
-              <thead>
-                <tr className="text-pinkTheme">
-                  <th>Rạp</th>
-                  <th>Thứ 2</th>
-                  <th>Thứ 3</th>
-                  <th>Thứ 4</th>
-                  <th>Thứ 5</th>
-                  <th>Thứ 6</th>
-                  <th>Thứ 7</th>
-                  <th>Chủ nhật</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="text-center">
-                  <td className="rap text-pinkTheme">Galaxys</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                </tr>
-                <tr className="text-center">
-                  <td className="rap text-pinkTheme">CGV</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                </tr>
-                <tr className="text-center">
-                  <td className="rap text-pinkTheme">BHD</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                </tr>
-                <tr className="text-center">
-                  <td className="rap text-pinkTheme">Lotte Cinema</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                </tr>
-                <tr className="text-center">
-                  <td className="rap text-pinkTheme">Cinestar</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                  <td>70K - 85K</td>
-                </tr>
-              </tbody>
-            </table>
-            <p className="text-xl mt-5">
+            <div className="max-sm:overflow-scroll">
+              <table className="border w-full mt-5">
+                <thead>
+                  <tr className="text-pinkTheme text-lg">
+                    <th>Rạp</th>
+                    <th>Thứ 2</th>
+                    <th>Thứ 3</th>
+                    <th>Thứ 4</th>
+                    <th>Thứ 5</th>
+                    <th>Thứ 6</th>
+                    <th>Thứ 7</th>
+                    <th>Chủ nhật</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="text-center">
+                    <td className="rap text-lg text-pinkTheme">Galaxys</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                  </tr>
+                  <tr className="text-center">
+                    <td className="rap text-pinkTheme">CGV</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                  </tr>
+                  <tr className="text-center">
+                    <td className="rap text-pinkTheme">BHD</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                  </tr>
+                  <tr className="text-center">
+                    <td className="rap text-pinkTheme">Lotte Cinema</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                  </tr>
+                  <tr className="text-center">
+                    <td className="rap text-pinkTheme">Cinestar</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                    <td>70K - 85K</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xl max-sm:text-lg mt-5">
               Hy vọng rằng những trải nghiệm đặt vé xem phim, tra cứu lịch chiếu
               phim nhanh, tiện lợi với mức giá tốt sẽ là món ăn tinh thần tuyệt
               vời dành cho người dùng của Ví MoMo. Đặt vé xem phim online chưa
@@ -463,8 +531,10 @@ const Homtemplate = styled.div`
   td,
   th {
     padding: 10px;
+    font-size: 18px;
     border: 1px solid lightgray;
   }
+
   .rap {
     font-weight: bold;
   }

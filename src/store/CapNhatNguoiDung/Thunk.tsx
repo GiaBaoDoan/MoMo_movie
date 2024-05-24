@@ -9,7 +9,6 @@ export const upDateThunk = createAsyncThunk(
       const data = await quanLyNguoiDungService.updateUser(payload);
       return data.data.content;
     } catch (err) {
-      console.log(err);
       return rejectWithValue(err);
     }
   }

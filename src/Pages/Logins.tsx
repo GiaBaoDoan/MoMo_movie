@@ -1,11 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { PATH } from "../constant/config";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginSchema } from "schema/LoginSchema";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
+import { LoginSchema, LoginSchemaType } from "schema/LoginSchema";
 import { RootState, useAppDispatch } from "store";
 import { LoginThunk } from "store/QuanLyNguoiDung/Thunk";
 import { Input } from "components/ui/Input";
@@ -16,17 +11,11 @@ import {
   TwitterOutlined,
 } from "@ant-design/icons";
 import { GoogleOutlined } from "@ant-design/icons";
-
-export const Logins = () => {
-  const navigate = useNavigate();
+import { toast } from "react-toastify";
+export const Logins = ({ registerRef, loginRef }: any) => {
   const { isLoading } = useSelector(
     (state: RootState) => state.quanLyNguoiDungToolkit
   );
-  useEffect(() => {
-    if (localStorage.getItem("USER")) {
-      navigate("/");
-    }
-  }, []);
   const {
     handleSubmit,
     register,
@@ -36,18 +25,20 @@ export const Logins = () => {
     resolver: zodResolver(LoginSchema),
   });
   const dispacth = useAppDispatch();
-  const onSubmit = async (value) => {
-    dispacth(LoginThunk(value))
+  const onSubmit: SubmitHandler<LoginSchemaType> = async (value) => {
+    await dispacth(LoginThunk(value))
       .unwrap()
-      .then(() => {
+      .then((_) => {
         toast.success("Đăng nhập thành công");
-        navigate("/");
+        loginRef.current.close();
       })
-      .catch((err) => toast.error(err?.response?.data?.content));
+      .catch((err) => {
+        toast.error(err?.response?.data?.content);
+      });
   };
   return (
     <form
-      className="bg-white h-full rounded-tr-xl rounded-br-xl p-5 w-[600px]"
+      className="bg-white h-full rounded-tr-xl rounded-br-xl p-5"
       onSubmit={handleSubmit(onSubmit)}
     >
       <h1 className="text-3xl font-600 text-pinkTheme text-center">
@@ -77,7 +68,7 @@ export const Logins = () => {
           type="password"
         ></Input>
         <p className="text-pinkTheme text-right mt-5">Quên mật khẩu?</p>
-        <div className="mt-40">
+        <div className="mt-9">
           {!isLoading ? (
             <div>
               <button
@@ -92,7 +83,6 @@ export const Logins = () => {
               disabled={true}
               className="text-white  justify-center bg-slate-400 font-500 rounded text-20 w-full p-10"
             >
-              Sign In
               <LoadingOutlined className="ml-2" />
             </button>
           )}
@@ -119,7 +109,10 @@ export const Logins = () => {
           <div className="flex justify-center space-x-3 items-center">
             <span className="text-gray-500">Chưa có tài khoản?</span>
             <span
-              onClick={() => navigate(PATH.resgister)}
+              onClick={() => {
+                registerRef?.current.showModal();
+                loginRef?.current.close();
+              }}
               className="text-pinkTheme text-[18px] underline cursor-pointer"
             >
               {" "}
