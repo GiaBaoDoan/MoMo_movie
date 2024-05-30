@@ -133,7 +133,7 @@ export const HomTemPlate = () => {
       />
       {/* banner */}
       <BannerMovie />
-      <section className="bg-pinkTheme">
+      <section className="bg-pinkTheme/10">
         <div className="py-24 max-lg:py-12 flex lg:space-x-5 justify-between max-lg:space-y-7 items-center max-lg:items-start max-lg:flex-col w-[90%] mx-auto">
           <div>
             <h2 className="text-4xl text-pinkTheme max-sm:text-2xl font-bold">
@@ -391,7 +391,7 @@ export const HomTemPlate = () => {
         </div>
       </section>
       {/* blog film ảnh */}
-      <section className="bg-pinkTheme py-24 max-lg:py-12">
+      <section className="bg-pinkTheme/10 py-24 max-lg:py-12">
         <div className="text-center w-[90%] mx-auto">
           <h3 className="font-bold  text-4xl max-sm:text-2xl text-pinkTheme">
             Blog phim ảnh
@@ -426,7 +426,7 @@ export const HomTemPlate = () => {
           Đặt mua vé xem phim trên MoMo
         </h3>
         <div className="flex justify-center items-center">
-          <p className="text-xl w-[85%] max-sm:text-lg max-lg:w-full mt-5 font-500s">
+          <p className="text-xl w-[85%] max-sm:text-lg max-lg:w-full mt-5 font-500">
             Việc đặt vé xem phim chưa bao giờ đơn giản và dễ dàng như thế, chỉ
             với vài thao tác trên màn hình điện thoại bạn đã có thể đặt vé xem
             bộ phim mình yêu thích mà không phải xếp hàng tại rạp. Ví MoMo đã
@@ -444,7 +444,7 @@ export const HomTemPlate = () => {
               Giá vé rạp chiếu phim (Phim 2D - dành cho người lớn)
             </p>
             <div className="max-sm:overflow-scroll">
-              <table className="border w-full mt-5">
+              {/* <table className="border w-full mt-5">
                 <thead>
                   <tr className="text-pinkTheme text-lg">
                     <th>Rạp</th>
@@ -509,7 +509,7 @@ export const HomTemPlate = () => {
                     <td>70K - 85K</td>
                   </tr>
                 </tbody>
-              </table>
+              </table> */}
             </div>
             <p className="text-xl max-sm:text-lg mt-5">
               Hy vọng rằng những trải nghiệm đặt vé xem phim, tra cứu lịch chiếu
