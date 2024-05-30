@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,18 +11,58 @@ const bannerFilm = [
 ];
 const BannerMovie = () => {
   return (
-    <section>
-      <Swiper navigation={true} pagination={true} modules={[Navigation]}>
-        {bannerFilm.map((item) => {
-          return (
-            <SwiperSlide>
-              <img src={item} alt="" />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-    </section>
+    <MovieBanner className="movieBanner">
+      <section>
+        <Swiper navigation={true} pagination={true} modules={[Navigation]}>
+          {bannerFilm.map((item) => {
+            return (
+              <SwiperSlide>
+                <img src={item} alt="" />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </section>
+    </MovieBanner>
   );
 };
-
+const MovieBanner = styled.div`
+  .movieBanner {
+    .swiper-button-prev {
+      color: black;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      transform: translateY(0px) !important;
+      @media only screen and (max-width: 1024px) {
+        width: 40px;
+        height: 40px;
+      }
+      &::after {
+        font-size: 18px;
+        font-weight: 800;
+      }
+    }
+    .swiper-button-next {
+      color: black;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      width: 60px;
+      height: 60px;
+      transform: translateY(0px) !important;
+      @media only screen and (max-width: 1024px) {
+        width: 40px;
+        height: 40px;
+      }
+      font-weight: 800;
+      border-radius: 100%;
+      &::after {
+        font-size: 18px;
+        font-weight: 800;
+      }
+    }
+  }
+`;
 export default BannerMovie;

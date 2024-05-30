@@ -149,7 +149,7 @@ export const Footer = () => {
                 viewBox="0 0 72 72"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="jsx-158e4b8c7d0d29f7 block max-sm:h-[40px] h-[60px] "
+                className="jsx-158e4b8c7d0d29f7 block max-sm:h-[40px] max-lg:h-[50px] h-[60px] "
               >
                 <path
                   d="M0 8C0 3.58172 3.58172 0 8 0H64C68.4183 0 72 3.58172 72 8V64C72 68.4183 68.4183 72 64 72H8C3.58172 72 0 68.4183 0 64V8Z"

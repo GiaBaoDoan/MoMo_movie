@@ -12,8 +12,6 @@ import Loading from "components/ui/Loading";
 import Countdown from "components/ui/CountDown";
 // checkout
 const CheckoutTemplate = () => {
-  const code =
-    "11010010000100111011001011101111011010001110101110011001101110010010111111001011001001000011011000111010110001001110111101101001011010111000101101101001000010011101100101110111101101000111010111001100110111001001011110111011100101100100100001101100011101011000100111011110110100";
   const dispatch = useAppDispatch();
   const { id } = useParams();
   const { user } = useSelector(
@@ -65,7 +63,7 @@ const CheckoutTemplate = () => {
         <button
           onClick={() => dispatch(addGhe(ghe))}
           disabled={ghe.daDat || classGheKhachDangDat !== ""}
-          className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDuocUserDat} ${classGheKhachDangDat}`}
+          className={`ghe ${classGheVip} flex justify-center items-center max-sm:text-xs ${classGheDaDat} ${classGheDangDat} ${classGheDuocUserDat} ${classGheKhachDangDat}`}
           key={index}
         >
           {ghe.daDat ? (
@@ -81,7 +79,7 @@ const CheckoutTemplate = () => {
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="lucide lucide-check w-full"
+                className="lucide max-sm:w-[14px] lucide-check w-full"
               >
                 <path d="M20 6 9 17l-5-5" />
               </svg>
@@ -97,18 +95,55 @@ const CheckoutTemplate = () => {
   };
   return (
     <div>
-      <Checkout className="">
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-7">
-            <div className="w-[80%] mx-auto flex justify-between items-center">
-              <p className="font-medium text-xl">
+      <Checkout className="overflow-hidden">
+        <div className="lg:grid grid-cols-12 gap-10">
+          <div className="lg:hidden w-[90%] flex-col max-sm:text-base space-y-5 mx-auto flex text-lg">
+            <div className="flex justify-center">
+              <img
+                className="rounded-xl w-auto max-sm:h-auto object-cover"
+                src={danhSachVe?.thongTinPhim.hinhAnh}
+                alt=""
+              />
+            </div>
+            <div className="space-y-5 max-sm:space-y-3 font-medium">
+              <p className="text-pinkTheme">
+                <span className="font-normal text-black">Tên phim : </span>
+                {danhSachVe?.thongTinPhim?.tenPhim}
+              </p>
+              <p>
+                <span className="font-normal">Ngày chiếu : </span>
+                {danhSachVe?.thongTinPhim?.gioChieu} ~{" "}
+                {danhSachVe?.thongTinPhim?.ngayChieu}
+              </p>
+              <p>
+                <span className="font-normal">Ten cụm rạp:</span>{" "}
+                {danhSachVe?.thongTinPhim.tenCumRap}
+              </p>
+              <p>
+                <span className="font-normal text-black">Địa điểm: </span>
+                {danhSachVe?.thongTinPhim?.diaChi} ~{" "}
+                {danhSachVe?.thongTinPhim?.tenRap}
+              </p>
+            </div>
+          </div>
+          <div className="lg:hidden py-5">
+            <hr />
+          </div>
+          <div className="col-span-7 max-lg:w-[90%] mx-auto">
+            <div className="w-[90%] max-lg:w-full mx-auto flex justify-between items-center">
+              <p className="font-medium text-lg max-sm:text-base">
                 Giờ chiếu:{" "}
-                <span className="font-bold">
+                <span className="text-green-500">
                   {danhSachVe?.thongTinPhim?.gioChieu}
                 </span>
               </p>
-              <div className="font-medium border border-pinkTheme py-2 px-5  rounded-lg text-xl">
-                <p className="text-pinkTheme flex space-x-3 items-center">
+              {
+                <p className="sm:hidden text-pinkTheme font-medium">
+                  <Countdown />
+                </p>
+              }
+              <div className="font-medium max-sm:hidden border border-[#006ee6] py-2 px-5  rounded-lg text-lg max-sm:text-base">
+                <p className="text-[#006ee6] flex space-x-3 items-center">
                   {" "}
                   <span>Ghế sẽ tự hủy sau:</span>{" "}
                   <span>
@@ -118,68 +153,107 @@ const CheckoutTemplate = () => {
               </div>
             </div>
             <div className="flex flex-col items-center">
-              <h3 className="text-2xl font-bold">Màn hình</h3>
+              <h3 className="text-2xl max-sm:text-lg text-orange-500 font-bold">
+                Màn Hình
+              </h3>
               <img
                 src="https://chieuphimquocgia.com.vn/_next/image?url=%2Fimages%2Fscreen.png&w=1200&q=75"
                 alt=""
+                className="lg:w-[90%]"
               />
-              <p className="font-bold py-5 text-xl">
-                Rạp chiếu {danhSachVe?.thongTinPhim.tenRap}
+              <p className="font-bold py-5 text-xl max-sm:text-base">
+                {danhSachVe?.thongTinPhim.tenRap}
               </p>
-              <div className="mx-auto grid grid-cols-10">{renderSeats()}</div>
-              <div className="mt-5 flex justify-center">
-                <table>
-                  <thead>
-                    <tr>
-                      <th className="px-5 font-medium">Ghế thường</th>
-                      <th className="px-5 font-medium">Đã đặt</th>
-                      <th className="px-5 font-medium">Bạn chọn</th>
-                      <th className="px-5 font-medium">Ghế vip</th>
-                      <th className="px-5 font-medium">Ghế bạn thanh toán</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="text-center">
-                        <button className="ghe"></button>
-                      </td>
-                      <td className="text-center">
-                        <button className="ghe gheDaDat text-gray-400">
-                          X
-                        </button>
-                      </td>
-                      <td className="text-center">
-                        <button className="ghe gheDangDat"></button>
-                      </td>
-                      <td className="text-center">
-                        <button className="ghe gheVip"></button>
-                      </td>
-                      <td className="text-center">
-                        <button className="ghe gheDuocUserLoginDat">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            color="rgba(59 130 246)"
-                            stroke="currentColor"
-                            strokeWidth="2.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="lucide lucide-check w-full"
-                          >
-                            <path d="M20 6 9 17l-5-5" />
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div className="mx-auto grid lg:grid-cols-12 grid-cols-10">
+                {renderSeats()}
+              </div>
+              <div className="mt-5 flex space-x-5 flex-wrap justify-center">
+                <div className="flex items-center space-x-2">
+                  <button className="ghe max-sm:!w-[20px] max-sm:!text-sm max-sm:!h-[20px] gheDaDat">
+                    X
+                  </button>
+                  <span className="max-sm:text-sm text-base">Đã đặt</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <button className="ghe max-sm:!w-[20px] max-sm:!h-[20px] gheDangDat"></button>
+                  <span className="max-sm:text-sm text-base">Ghế bạn chọn</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <button className="ghe max-sm:!w-[20px] max-sm:!h-[20px] gheVip"></button>
+                  <span className="max-sm:text-sm text-base">Ghế vip</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <button className="ghe max-sm:!w-[20px] max-sm:!h-[20px]"></button>
+                  <span className="max-sm:text-sm text-base">Ghế thường</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <button className="ghe max-sm:!w-[20px] flex justify-center items-center space-x-2 max-sm:text-sm max-sm:!h-[20px] gheDuocUserLoginDat">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      color="rgba(59 130 246)"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-check w-full max-sm:w-[14px]"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  </button>
+                  <span className="max-sm:text-sm text-base">
+                    Ghế bạn thanh toán
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="lg:hidden text-lg max-sm:text-base font-medium py-5">
+              <p>
+                Ghế bạn chọn:{" "}
+                {sortBy(danhSachGheDangDat, ["stt"]).map((gheDaDat) => {
+                  return (
+                    <span className="font-medium text-pinkTheme">
+                      {gheDaDat.tenGhe},{" "}
+                    </span>
+                  );
+                })}
+              </p>
+              <p>
+                Tổng tiền thanh toán:{" "}
+                <span className="text-green-500">
+                  {danhSachGheDangDat
+                    .reduce((total, gheDaDat) => {
+                      return (total += gheDaDat.giaVe);
+                    }, 0)
+                    .toLocaleString()}
+                  VND
+                </span>
+              </p>
+              <div className="flex justify-between mt-5 space-x-3">
+                <button
+                  onClick={() => dispatch(addGhe(null))}
+                  className="border px-5 py-3 max-sm:p-3 rounded-full font-medium  hover:text-green-500  hover:border-green-500"
+                >
+                  <span className="text-base">Hủy ghế</span>
+                </button>
+                <button
+                  disabled={danhSachGheDangDat.length ? false : true}
+                  onClick={handelPayment}
+                  className={`px-5 py-3 max-sm:p-3  ${
+                    danhSachGheDangDat.length
+                      ? "bg-green-500 hover:bg-green-600 cursor-pointer"
+                      : "cursor-no-drop bg-gray-400"
+                  } text-white  rounded-full `}
+                >
+                  <span className="font-medium text-base">Thanh toán</span>
+                </button>
               </div>
             </div>
           </div>
-          <div className="col-span-4 mr-10">
+          <div className="col-span-4 max-2xl:col-span-5 max-lg:hidden mr-10">
             <div className="shadow-md bg-white p-9 rounded-lg relative">
               <div className="bg-slate-50 w-[50px] h-[50px] -top-5 -left-5 rounded-full absolute"></div>
               <div className="bg-slate-50 w-[50px] h-[50px] rounded-full right-1/2 translate-x-1/2 -top-5 absolute"></div>
@@ -188,11 +262,13 @@ const CheckoutTemplate = () => {
                 <h3 className="text-xl text-center font-600 text-pinkTheme">
                   {danhSachVe?.thongTinPhim.tenPhim}
                 </h3>
-                <img
-                  className="w-full mx-auto h-[400px] rounded-lg object-cover"
-                  src={danhSachVe?.thongTinPhim.hinhAnh}
-                  alt=""
-                />
+                <div className="flex justify-center">
+                  <img
+                    className="rounded-xl h-[400px] w-[300px]"
+                    src={danhSachVe?.thongTinPhim.hinhAnh}
+                    alt=""
+                  />
+                </div>
                 <p className="text-xl">
                   Địa điểm:{" "}
                   <span className="font-medium">
@@ -209,6 +285,10 @@ const CheckoutTemplate = () => {
                     </span>{" "}
                     {danhSachVe?.thongTinPhim.tenRap}
                   </span>
+                </p>
+                <p className="text-xl font-medium">
+                  <span className="font-normal">Tên cụm rạp: </span>
+                  {danhSachVe?.thongTinPhim?.tenCumRap}
                 </p>
                 <hr />
                 <div className="flex items-center justify-between">
@@ -241,7 +321,7 @@ const CheckoutTemplate = () => {
                     <div className="bg-slate-50 w-[50px] h-[50px] rounded-full absolute top-[-25px] left-[-50px]"></div>
                     <div className="bg-slate-50 w-[50px] h-[50px] rounded-full absolute top-[-25px] right-[-50px]"></div>
                   </div>
-                  <table className="h-7">
+                  {/* <table className="h-7">
                     <tr>
                       {code.split("").map((item) => {
                         if (item === "1") {
@@ -251,7 +331,7 @@ const CheckoutTemplate = () => {
                         }
                       })}
                     </tr>
-                  </table>
+                  </table> */}
                 </div>
                 <div className="text-base space-x-3">
                   <button
@@ -289,6 +369,10 @@ const Checkout = styled.div`
     width: 35px;
     height: 35px;
     background-color: rgba(123, 122, 122);
+    @media only screen and (max-width: 640px) {
+      width: 28px;
+      height: 28px;
+    }
     color: white;
     cursor: pointer;
     border: none;

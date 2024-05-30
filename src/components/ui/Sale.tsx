@@ -16,11 +16,11 @@ const Sale = () => {
           640: {
             slidesPerView: 2,
           },
-          1024: {
+          1280: {
             slidesPerView: 3,
           },
         }}
-        className="mx-auto mt-5 text-black flex justify-center w-[90%]"
+        className="mx-auto mt-5 max-xl:text-base text-black flex justify-center w-[90%]"
       >
         {Data?.map((item, index) => {
           return (

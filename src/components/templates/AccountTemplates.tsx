@@ -35,14 +35,14 @@ const AccountTemplates = () => {
     modalRef?.current?.showModal();
     setMaVe(phim);
   };
+  console.log(errors);
   const onSubmit: SubmitHandler<InforSchemaType> = async (data) => {
     await dispatch(
       upDateThunk({
         ...data,
+        maLoaiNguoiDung: LichSuDatVe?.maLoaiNguoiDung,
         maNhom: LichSuDatVe?.maNhom,
         taiKhoan: LichSuDatVe?.taiKhoan,
-        maLoaiNguoiDung: LichSuDatVe?.maLoaiNguoiDung,
-        matKhau: LichSuDatVe?.matKhau,
       })
     );
     dispatch(getLichSuDatVeThunk());
@@ -65,30 +65,31 @@ const AccountTemplates = () => {
     </svg>
   );
   useEffect(() => {
-    if (!localStorage.getItem("USER")) return navigate("/login");
+    if (!localStorage.getItem("USER")) return navigate("/");
     dispatch(getLichSuDatVeThunk());
   }, []);
   if (isLoading) return <Loading />;
-
   return (
     <AccountCSS>
       <section className="w-[90%] mx-auto space-y-5">
         <dialog ref={modalRef} className="modal">
-          <div className="bg-white modal-box w-[1440px]">
+          <div className="bg-white modal-box">
             <div className="space-y-3 font-medium text-lg">
               <h3 className="text-pinkTheme font-medium text-center text-xl">
                 {maVe?.tenPhim}
               </h3>
               <img
-                className="w-full rounded-xl h-[400px] object-cover"
+                className="w-full rounded-xl h-[400px] max-sm:h-[280px] object-cover"
                 src={maVe?.hinhAnh}
                 alt=""
               />
               <div className="space-y-3">
-                <p className="text-orange-500">
-                  <span className="text-black">Địa điểm:</span>{" "}
-                  {maVe?.danhSachGhe[0].tenHeThongRap} -{" "}
-                  <span>{maVe?.danhSachGhe[0].tenRap}</span>
+                <p>
+                  <span>Địa điểm:</span>{" "}
+                  <span className="text-orange-500">
+                    {maVe?.danhSachGhe[0].tenHeThongRap} -{" "}
+                    <span>{maVe?.danhSachGhe[0].tenRap}</span>
+                  </span>
                 </p>
                 <p>
                   Thời lượng phim
@@ -118,8 +119,8 @@ const AccountTemplates = () => {
             <button>close</button>
           </form>
         </dialog>
-        <div className="flex space-x-5 justify-center ">
-          <div className="left shadow flex-2  rounded-xl  bg-white  p-24 px-12">
+        <div className="flex max-md:space-y-5  md:space-x-5 max-md:flex-col justify-center">
+          <div className="left shadow flex-2  rounded-xl  bg-white  p-24 max-md:p-7 max-md:px-5 px-12">
             <div className="flex text-lg flex-col space-y-3 justify-center items-center">
               <p className="flex items-center mb-5 space-x-2">
                 <p className="typewriter">
@@ -147,7 +148,7 @@ const AccountTemplates = () => {
             </div>
           </div>
           <div className="right flex-1 bg-white shadow  rounded-xl space-y-5">
-            <div className="text-lg space-y-5 p-14 px-12">
+            <div className="text-lg space-y-5 p-14 max-md:py-7 max-md:px-5 px-12">
               <h3
                 style={{
                   backgroundImage:
@@ -202,10 +203,24 @@ const AccountTemplates = () => {
                   </div>
                 </p>
               </div>
+              <div className="flex items-center">
+                <p className="flex-1">
+                  Mật khẩu:{" "}
+                  <span className="font-medium">{LichSuDatVe?.matKhau}</span>
+                  <div className="mt-3">
+                    <Input
+                      name="matKhau"
+                      register={register}
+                      error={errors?.matKhau?.message as string}
+                      type="password"
+                    />
+                  </div>
+                </p>
+              </div>
               <div>
                 <button
                   onClick={handleSubmit(onSubmit)}
-                  className="bg-pinkTheme  hover:bg-pink-700 px-5 py-3 text-white font-medium rounded"
+                  className="bg-pinkTheme  hover:bg-pink-700 px-5 py-3 max-md:p-3 text-base text-white font-medium rounded"
                 >
                   Cập nhật
                 </button>
@@ -214,31 +229,46 @@ const AccountTemplates = () => {
           </div>
         </div>
         <div className="bg-white rounded-xl space-y-5 shadow p-[24px]">
-          <p
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, #ee00ff 0%, #fbff00 100%)",
-              color: "transparent",
-              WebkitBackgroundClip: "text",
-            }}
-            className="font-medium text-xl"
-          >
-            Lịch sử đặt vé của bạn
-          </p>
+          {LichSuDatVe.thongTinDatVe.length ? (
+            <p
+              style={{
+                backgroundImage:
+                  "linear-gradient(to right, #ee00ff 0%, #fbff00 100%)",
+                color: "transparent",
+                WebkitBackgroundClip: "text",
+              }}
+              className="font-medium text-xl"
+            >
+              Lịch sử đặt vé của bạn
+            </p>
+          ) : (
+            <p className="text-center max-sm:text-base text-2xl text-pinkTheme font-medium">
+              Hiện bạn chưa có vé phim nào!!
+            </p>
+          )}
+
           <Swiper
             navigation={true}
             pagination={true}
             modules={[Navigation, Pagination]}
-            slidesPerView={3}
+            slidesPerView={1}
             spaceBetween={20}
+            breakpoints={{
+              1024: {
+                slidesPerView: 2,
+              },
+              1528: {
+                slidesPerView: 3,
+              },
+            }}
           >
             {LichSuDatVe?.thongTinDatVe.map((card) => {
               return (
                 <SwiperSlide>
                   <div className="flex">
-                    <div className="flex flex-1 items-center space-x-5">
+                    <div className="flex flex-1 max-sm:flex-col max-sm:space-y-5 max-sm:items-start items-center space-x-5">
                       <img
-                        className="rounded-xl h-[150px] object-cover"
+                        className="rounded-xl h-[150px] max-sm:w-full max-sm:h-[300px] object-cover"
                         src={card.hinhAnh}
                         alt=""
                       />

@@ -12,7 +12,6 @@ export type ListFilm  = {
     dangChieu:     boolean;
     sapChieu:      boolean;
 }
-
 export enum MaNhom {
     Gp01 = "GP01",
 }

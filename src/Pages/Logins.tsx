@@ -38,13 +38,13 @@ export const Logins = ({ registerRef, loginRef }: any) => {
   };
   return (
     <form
-      className="bg-white h-full rounded-tr-xl rounded-br-xl p-5"
+      className="bg-white h-full rounded-tr-xl rounded-br-xl py-5 max-sm:p-0"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-3xl font-600 text-pinkTheme text-center">
+      <h1 className="text-3xl max-sm:text-xl font-600 text-pinkTheme text-center">
         Đăng nhập
       </h1>
-      <div className="mt-20">
+      <div className="mt-5 max-sm:text-base">
         <p className="font-500 my-[5px]">
           {" "}
           <span className="text-red-500">*</span> Tài khoản
@@ -68,12 +68,12 @@ export const Logins = ({ registerRef, loginRef }: any) => {
           type="password"
         ></Input>
         <p className="text-pinkTheme text-right mt-5">Quên mật khẩu?</p>
-        <div className="mt-9">
+        <div className="mt-5">
           {!isLoading ? (
             <div>
               <button
                 disabled={false}
-                className="text-white bg-pinkTheme rounded-[5px] font-500  text-20 w-full p-10"
+                className="text-white bg-pinkTheme rounded-md font-500 text-xl max-sm:text-base w-full p-10"
               >
                 Đăng nhập
               </button>
@@ -81,31 +81,31 @@ export const Logins = ({ registerRef, loginRef }: any) => {
           ) : (
             <button
               disabled={true}
-              className="text-white  justify-center bg-slate-400 font-500 rounded text-20 w-full p-10"
+              className="text-white  justify-center bg-slate-400 font-500 roundedtext-xl max-sm:text-base w-full p-10"
             >
               <LoadingOutlined className="ml-2" />
             </button>
           )}
         </div>
-        <div className="flex items-center mt-[10px] space-x-[20px] ">
-          <div className="w-[50%] bg-gray-300 h-[2px] "></div>
-          <span className="text-[20px]">Or</span>
-          <div className="w-[50%] bg-gray-300 h-[2px] "></div>
+        <div className="flex items-center mt-10 space-x-5 ">
+          <div className="w-1/2 bg-gray-300 h-[2px]"></div>
+          <span className="text-xl max-sm:text-base">Or</span>
+          <div className="w-1/2 bg-gray-300 h-[2px]"></div>
         </div>
-        <div className="mt-[10px]">
-          <div className="grid grid-cols-3 gap-x-[10px]">
-            <div className="border border-gray-600 flex   items-center rounded-[5px] hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-[10px]">
-              <GoogleOutlined className="text-[25px]" />
+        <div className="mt-10">
+          <div className="grid grid-cols-3 gap-x-10">
+            <div className="border border-gray-600 flex items-center rounded-md hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-10">
+              <GoogleOutlined className="text-[25px] max-sm:text-2xl" />
             </div>
-            <div className="border border-gray-600 flex items-center rounded-[5px] hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-[10px]">
-              <GithubOutlined className="text-[25px]" />
+            <div className="border border-gray-600 flex items-center rounded-md hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-10">
+              <GithubOutlined className="text-[25px] max-sm:text-2xl" />
             </div>
-            <div className="border border-gray-600 flex items-center rounded-[5px] hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-[10px]">
-              <TwitterOutlined className="text-[25px]" />
+            <div className="border border-gray-600 flex items-center rounded-md hover:bg-pinkTheme transition-all hover:text-white cursor-pointer hover:border-pinkTheme justify-center p-10">
+              <TwitterOutlined className="text-[25px] max-sm:text-2xl" />
             </div>
           </div>
         </div>
-        <div className="my-[20px]">
+        <div className="my-5 max-sm:text-base">
           <div className="flex justify-center space-x-3 items-center">
             <span className="text-gray-500">Chưa có tài khoản?</span>
             <span

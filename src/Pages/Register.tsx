@@ -7,7 +7,6 @@ import { LoadingOutlined } from "@ant-design/icons";
 import { Input } from "components/ui";
 import { quanLyNguoiDungService } from "services";
 import { toast } from "react-toastify";
-
 export const Register = ({ loginRef, registerRef }: any) => {
   const [isPending, setIsPending] = useState<boolean>(false);
   const {
@@ -37,15 +36,16 @@ export const Register = ({ loginRef, registerRef }: any) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="p-[25px] h-full rounded-br-xl rounded-tr-xl bg-white"
+      className="h-full p-5 max-sm:px-0 max-sm:py-5 rounded-br-xl rounded-tr-xl bg-white"
     >
-      <h1 className="text-3xl font-600 text-pinkTheme text-center ">Đăng ký</h1>
-      <div className="mt-5">
+      <h1 className="text-3xl font-600 text-pinkTheme text-center max-sm:text-xl">
+        Đăng ký
+      </h1>
+      <div className="mt-5 max-sm:text-base">
         <div className="grid grid-cols-2 gap-x-[10px]">
           <div>
             <p className="font-500 my-[5px] ">
-              {" "}
-              <span className="text-red-500">*</span> Họ tên
+              <span className="text-red-500 max-sm:text-base">*</span> Họ tên
             </p>
             <Input
               placeholder="Họ và tên"
@@ -56,15 +56,14 @@ export const Register = ({ loginRef, registerRef }: any) => {
               name="hoTen"
             />
           </div>
-
           <div>
             <p className="font-500 my-[5px]">
-              {" "}
               <span className="text-red-500">*</span> Mã nhóm
             </p>
             <Input
               placeholder="Mã Nhóm"
               type="text"
+              disabled={true}
               name="maNhom"
               value="GP01"
               error={errors?.maNhom?.message as string}
@@ -75,7 +74,6 @@ export const Register = ({ loginRef, registerRef }: any) => {
         </div>
         <div>
           <p className="font-500 my-[5px]">
-            {" "}
             <span className="text-red-500">*</span> Tài khoản
           </p>
           <Input
@@ -87,10 +85,9 @@ export const Register = ({ loginRef, registerRef }: any) => {
             register={register}
           />
         </div>
-        <div className="grid grid-cols-2 gap-x-[10px]">
+        <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-x-10">
           <div className="mt-10">
             <p className="font-500 my-[5px]">
-              {" "}
               <span className="text-red-500">*</span> Email
             </p>
             <Input
@@ -105,7 +102,6 @@ export const Register = ({ loginRef, registerRef }: any) => {
           </div>
           <div className="mt-10">
             <p className="font-500 my-[5px]">
-              {" "}
               <span className="text-red-500">*</span> Số điện thoại
             </p>
             <Input
@@ -118,10 +114,9 @@ export const Register = ({ loginRef, registerRef }: any) => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-x-[10px]">
+        <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-x-[10px]">
           <div>
             <p className="font-500 my-[5px]">
-              {" "}
               <span className="text-red-500">*</span> Mật khẩu
             </p>
             <Input
@@ -146,7 +141,7 @@ export const Register = ({ loginRef, registerRef }: any) => {
             />
           </div>
         </div>
-        <div className="mt-10">
+        <div className="mt-10 max-sm:text-base">
           {isPending ? (
             <button
               disabled={true}
@@ -157,13 +152,13 @@ export const Register = ({ loginRef, registerRef }: any) => {
           ) : (
             <button
               disabled={false}
-              className="text-white bg-pinkTheme font-500 rounded text-20 w-full mt-[10px] p-10"
+              className="text-white bg-pinkTheme font-500 rounded text-xl max-sm:text-base w-full mt-10 p-10"
             >
               Resgister
             </button>
           )}
         </div>
-        <div className="mt-5">
+        <div className="mt-5 max-sm:text-base">
           <div className="flex justify-center space-x-3 items-center">
             <span className="text-gray-500">Bạn đã có tài khoản?</span>
             <span

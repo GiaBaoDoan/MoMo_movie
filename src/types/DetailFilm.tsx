@@ -26,7 +26,6 @@ export type CumRapChieu = {
   hinhAnh: string;
   diaChi: string;
 };
-
 export type LichChieuPhim = {
   maLichChieu: string;
   maRap: string;

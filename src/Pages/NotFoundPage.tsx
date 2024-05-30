@@ -1,9 +1,17 @@
 import { Footer, Header } from "components/ui";
-
+import { useRef, useState } from "react";
 const NotFoundPage = () => {
+  const [openHeader, setOpenHeader] = useState<boolean>(false);
+  const loginRef = useRef<HTMLDialogElement>();
+  const registerRef = useRef<HTMLDialogElement>();
   return (
     <main>
-      <Header />
+      <Header
+        openHeader={openHeader}
+        loginRef={loginRef}
+        registerRef={registerRef}
+        setOpenHeader={setOpenHeader}
+      />
       <section className="py-24">
         <div className="mb-4 font-bold text-center text-gray-200 text-8xl md:text-9xl">
           404

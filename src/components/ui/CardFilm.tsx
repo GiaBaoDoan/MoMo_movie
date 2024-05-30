@@ -4,10 +4,7 @@ const CardFilm = ({ film, index, width, height, setTrailer, setOpen }) => {
   const navigate = useNavigate();
   return (
     <div>
-      <div
-        // onClick={() => navigate(`/details/${film.maPhim}`)}
-        className="cursor-pointer relative"
-      >
+      <div className="cursor-pointer relative max-sm:text-sm">
         {film.hot && (
           <button className="bg-[#006ee6] absolute top-10 left-10 z-10 p-2 px-3 rounded-md font-medium text-white">
             Hot
@@ -19,14 +16,14 @@ const CardFilm = ({ film, index, width, height, setTrailer, setOpen }) => {
           </button>
         )}
 
-        <div className="h-[420px] max-lg:h-[300px] transition-all overflow-hidden relative ">
+        <div className="h-[420px] max-lg:h-[300px] max-sm:h-[230px] max-sm:w-auto rounded-lg   transition-all overflow-hidden relative ">
           <div
             className="h-full"
             onClick={() => navigate(`/details/${film.maPhim}`)}
           >
             <img
               style={{ height, width }}
-              className="hover:scale-105 h-full w-full transition-all object-cover z-1 rounded"
+              className="hover:scale-105 h-full w-full transition-all object-cover z-1 "
               src={film.hinhAnh}
               alt=""
             />
@@ -39,7 +36,7 @@ const CardFilm = ({ film, index, width, height, setTrailer, setOpen }) => {
           >
             <Play />
           </div>
-          <div className="number left-10 absolute -bottom-2 font-bold text-5xl z-1">
+          <div className="number left-10 absolute -bottom-2 font-bold text-5xl max-sm:text-3xl z-1">
             <p
               style={{ textShadow: "3px 3px black" }}
               className="text-gray-200 "
@@ -49,7 +46,7 @@ const CardFilm = ({ film, index, width, height, setTrailer, setOpen }) => {
           </div>
         </div>
         <div className="mt-5 space-y-3">
-          <p className="font-bold text-xl capitalize">
+          <p className="font-bold text-xl max-sm:text-base capitalize">
             {film.tenPhim.length > 20
               ? film.tenPhim.slice(0, 20) + "..."
               : film.tenPhim}
@@ -66,11 +63,11 @@ const CardFilm = ({ film, index, width, height, setTrailer, setOpen }) => {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="lucide lucide-star"
+              className="lucide lucide-star max-sm:w-[16px]"
             >
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
-            <span className="text-lg"> {film.danhGia}</span>
+            <span className="text-lg max-sm:text-sm"> {film.danhGia}</span>
           </div>
         </div>
       </div>

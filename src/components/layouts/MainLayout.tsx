@@ -2,10 +2,25 @@ import styled from "styled-components";
 import "../../assets/style.css";
 import { Footer, Header } from "components/ui";
 import { Outlet } from "react-router-dom";
+import HeaderLeftSide from "components/ui/HeaderLeftSide";
+import { useRef, useState } from "react";
 const MainLayout = () => {
+  const [openHeader, setOpenHeader] = useState<boolean>(true);
+  const loginRef = useRef<HTMLDialogElement>();
+  const registerRef = useRef<HTMLDialogElement>();
   return (
     <div>
-      <Header />
+      <Header
+        loginRef={loginRef}
+        registerRef={registerRef}
+        openHeader={openHeader}
+        setOpenHeader={setOpenHeader}
+      />
+      <HeaderLeftSide
+        registerRef={registerRef}
+        loginRef={loginRef}
+        openHeader={openHeader}
+      />
       <Outlet />
       <Footer />
     </div>

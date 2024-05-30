@@ -14,10 +14,8 @@ const LichSuVeSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(getLichSuDatVeThunk.fulfilled, (state, { payload }) => {
-      if (payload) {
-        state.LichSuDatVe = payload;
-        state.isLoading = false;
-      }
+      state.LichSuDatVe = payload;
+      state.isLoading = false;
     });
     builder.addCase(getLichSuDatVeThunk.pending, (state) => {
       state.isLoading = true;

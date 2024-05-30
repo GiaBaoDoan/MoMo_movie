@@ -6,6 +6,8 @@ type InputProps = {
   name?: string;
   value?: string;
   className?: string;
+  onChange?: any;
+  disabled?: boolean;
   placeholder?: string;
   type: HTMLInputTypeAttribute;
 };
@@ -14,6 +16,7 @@ export const Input = ({
   error,
   name,
   value,
+  disabled,
   placeholder,
   type,
 }: InputProps) => {
@@ -22,13 +25,14 @@ export const Input = ({
       <input
         value={value}
         placeholder={placeholder}
+        disabled={disabled}
         type={type}
         className={` outline-none ${
           error ? "border-red-500" : ""
         } relative block w-full  border p-15 rounded-lg`}
         {...register(name)}
       ></input>
-      {error && <p className="text-red-500 text-[16px]"> *{error}</p>}
+      {error && <p className="text-red-500 text-[16px]">*{error}</p>}
     </div>
   );
 };

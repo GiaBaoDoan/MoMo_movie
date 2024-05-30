@@ -18,7 +18,7 @@ const PaymentCheckout = () => {
   const [active, setActive] = useState(0);
   return (
     <section>
-      <div className="space-y-5">
+      <div className="space-y-5 max-sm:text-base">
         {data.map((item, index) => {
           return (
             <div
@@ -29,7 +29,7 @@ const PaymentCheckout = () => {
               } flex items-center cursor-pointer space-x-3 p-5 rounded-xl`}
             >
               <div
-                className={`check ring-1  w-[28px] h-[28px] flex justify-center items-center rounded-full ${
+                className={`check ring-1  w-[28px] h-[28px] max-sm:h-[20px] max-sm:w-[20px] flex justify-center items-center rounded-full ${
                   active === index ? "ring-blue-500" : "ring-gray-300"
                 } `}
               >
@@ -52,7 +52,7 @@ const PaymentCheckout = () => {
                   </svg>
                 )}
               </div>
-              <img className="h-[30px]" src={item.img} alt="" />
+              <img className="h-[30px] max-sm:h-[20px]" src={item.img} alt="" />
               <p>{item.tit}</p>
             </div>
           );

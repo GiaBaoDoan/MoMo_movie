@@ -1,6 +1,6 @@
 const Play = () => {
   return (
-    <div className="border-white absolute hover:scale-110 transition-all bg-black bg-opacity-50 -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 border-[3px] w-14 flex justify-center items-center h-14 rounded-full">
+    <div className="border-white absolute hover:scale-110 transition-all bg-black bg-opacity-50 -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 border-[3px] w-14 max-sm:w-11 max-sm:h-11 flex justify-center items-center h-14 rounded-full">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -12,7 +12,7 @@ const Play = () => {
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="lucide lucide-play"
+        className="lucide lucide-play max-sm:w-[16px]"
       >
         <polygon points="6 3 20 12 6 21 6 3" />
       </svg>

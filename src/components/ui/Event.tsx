@@ -13,10 +13,10 @@ const Event = () => {
         autoplay={true}
         spaceBetween={20}
         breakpoints={{
-          550: {
+          640: {
             slidesPerView: 2,
           },
-          1024: {
+          1280: {
             slidesPerView: 3,
           },
         }}

@@ -123,7 +123,7 @@ export const HomTemPlate = () => {
   // loading page
   if (isFetchMovie) return <Loading />;
   return (
-    <Homtemplate className="relative overflow-hidden">
+    <Homtemplate className="relative overflow-x-hidden">
       <ModalVideo
         channel="youtube"
         youtube={{ mute: 0, autoplay: 0 }}
@@ -134,30 +134,31 @@ export const HomTemPlate = () => {
       {/* banner */}
       <BannerMovie />
       <section className="bg-pinkTheme bg-opacity-10">
-        <div className="py-24 max-lg:py-12 flex justify-between max-lg:flex-col max-lg:space-y-5 items-center w-[90%] mx-auto">
+        <div className="py-24 max-lg:py-12 flex lg:space-x-5 justify-between max-lg:space-y-7 items-center max-lg:items-start max-lg:flex-col w-[90%] mx-auto">
           <div>
-            <h2 className="text-5xl text-pinkTheme font-bold">
+            <h2 className="text-4xl text-pinkTheme max-sm:text-2xl font-bold">
               Đặt mua vé xem phim MoMo
             </h2>
-            <div className="space-y-5 mt-12">
-              <p className="flex space-x-3 text-xl items-center">
-                {" "}
-                <div className="bg-pinkTheme w-9 flex justify-center items-center h-9 rounded-full bg-opacity-30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    color="rgba(216 45 139)"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-check"
-                  >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>{" "}
+            <div className="space-y-5 mt-5">
+              <p className="flex space-x-3 text-xl max-sm:text-base items-center">
+                <div>
+                  <div className="bg-pinkTheme w-9 flex justify-center items-center h-9 max-sm:h-7 max-sm:w-7 rounded-full bg-opacity-30">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      color="rgba(216 45 139)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-check max-sm:w-[12px]"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>{" "}
+                  </div>
                 </div>
                 <span>
                   Mua vé Online,{" "}
@@ -166,55 +167,55 @@ export const HomTemPlate = () => {
                   </span>
                 </span>
               </p>
-              <p className="flex space-x-3 text-xl items-center">
-                {" "}
-                <div className="bg-pinkTheme w-9 h-9 flex justify-center items-center rounded-full bg-opacity-30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    color="rgba(216 45 139)"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-check"
-                  >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+              <p className="flex space-x-3 text-xl max-sm:text-base items-center">
+                <div>
+                  <div className="bg-pinkTheme w-9 h-9 max-sm:h-7 max-sm:w-7 flex justify-center items-center rounded-full bg-opacity-30">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      color="rgba(216 45 139)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-check max-sm:w-[12px]"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  </div>
                 </div>
                 <span>
-                  {" "}
                   <span className="font-bold text-blackTheme">
-                    {" "}
                     Đặt vé an toàn
                   </span>{" "}
                   trên MoMo
                 </span>
               </p>
-              <p className="flex space-x-3 text-xl items-center">
+              <p className="flex space-x-3 text-xl max-sm:text-base items-center">
                 {" "}
-                <div className="bg-pinkTheme w-9 flex justify-center items-center h-9 rounded-full bg-opacity-30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    color="rgba(216 45 139)"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-check"
-                  >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+                <div>
+                  <div className="bg-pinkTheme  w-9 h-9 max-sm:h-7 max-sm:w-7 flex justify-center items-center  rounded-full bg-opacity-30">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      color="rgba(216 45 139)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-check max-sm:w-[12px]"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  </div>
                 </div>
                 <span>
-                  {" "}
                   Tha hồ{" "}
                   <span className="font-bold text-blackTheme">
                     chọn chỗ ngồi, mua bắp nước
@@ -222,24 +223,26 @@ export const HomTemPlate = () => {
                   tiện lợi.
                 </span>
               </p>
-              <p className="flex space-x-3 text-xl items-center">
+              <p className="flex space-x-3 text-xl max-sm:text-base items-center">
                 {" "}
-                <div className="bg-pinkTheme w-9 flex justify-center items-center h-9 rounded-full bg-opacity-30">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    color="rgba(216 45 139)"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-check"
-                  >
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
+                <div>
+                  <div className="bg-pinkTheme w-9 h-9 max-sm:h-7 max-sm:w-7 flex justify-center items-center  rounded-full bg-opacity-30">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      color="rgba(216 45 139)"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-check max-sm:w-[12px]"
+                    >
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  </div>
                 </div>
                 <span>
                   {" "}
@@ -251,8 +254,10 @@ export const HomTemPlate = () => {
               </p>
             </div>
             <div className="mt-10">
-              <button className="text-white capitalize p-3 hover:bg-pink-800 text-xl bg-pinkTheme rounded-md font-bold mt-5">
-                Đặt vé ngay
+              <button className=" capitalize p-3 max-sm:p-8 hover:bg-pink-800  bg-pinkTheme rounded-md  mt-5">
+                <span className="text-xl max-sm:text-base text-white font-600">
+                  Đặt vé ngay
+                </span>
               </button>
             </div>
           </div>
@@ -273,34 +278,32 @@ export const HomTemPlate = () => {
           backgroundPosition: "bottom center",
           backgroundSize: "cover",
         }}
-        className="pb-32 pt-24"
+        className="py-24 max-lg:py-12"
       >
-        <h2 className="text-4xl font-bold text-center text-white">
+        <h2 className="text-4xl max-sm:text-2xl font-bold text-center text-white">
           Phim đang chiếu
         </h2>
         <Swiper
           navigation={true}
           pagination={true}
           modules={[Navigation, Pagination]}
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={20}
           breakpoints={{
             320: {
-              slidesPerView: 1,
-            },
-            // when window width is >= 480px
-            480: {
               slidesPerView: 2,
             },
-            // when window width is >= 640px
             640: {
               slidesPerView: 3,
             },
             1024: {
+              slidesPerView: 4,
+            },
+            1536: {
               slidesPerView: 5,
             },
           }}
-          className="mx-auto mt-14 text-white flex justify-center w-[90%]"
+          className="mx-auto mt-5 text-white flex justify-center w-[90%]"
         >
           {listFilm?.map((film, index) => {
             return (
@@ -319,33 +322,31 @@ export const HomTemPlate = () => {
         </Swiper>
       </section>
       {/* display phim sắp chiếu */}
-      <section className="pb-24 pt-11">
-        <h2 className="text-4xl font-bold text-center text-pinkTheme">
+      <section className="py-24 max-lg:pt-12">
+        <h2 className="text-4xl font-bold max-sm:text-2xl text-center text-pinkTheme">
           Phim Sắp chiếu
         </h2>
         <Swiper
           navigation={true}
           pagination={true}
           modules={[Navigation]}
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={20}
           breakpoints={{
             320: {
-              slidesPerView: 1,
-            },
-            // when window width is >= 480px
-            480: {
               slidesPerView: 2,
             },
-            // when window width is >= 640px
             640: {
               slidesPerView: 3,
             },
             1024: {
+              slidesPerView: 4,
+            },
+            1536: {
               slidesPerView: 5,
             },
           }}
-          className="mx-auto mt-14 text-black flex justify-center w-[90%]"
+          className="mx-auto mt-5 text-black flex justify-center w-[90%]"
         >
           {listFilm?.map((film, index) => {
             return (
@@ -364,8 +365,8 @@ export const HomTemPlate = () => {
         </Swiper>
       </section>
       {/* display lịch chiếu phim */}
-      <section className="bg-slate-50 pt-11 pb-32">
-        <h2 className="text-4xl font-bold text-center text-pinkTheme">
+      <section className="bg-slate-50 max-lg:py-12 py-24">
+        <h2 className="text-4xl font-bold text-center max-sm:text-2xl text-pinkTheme">
           Lịch chiếu phim
         </h2>
         <Tab heThongRapChieu={heThongRapChieu} />
@@ -534,7 +535,6 @@ const Homtemplate = styled.div`
     font-size: 18px;
     border: 1px solid lightgray;
   }
-
   .rap {
     font-weight: bold;
   }
@@ -543,12 +543,16 @@ const Homtemplate = styled.div`
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 60px;
-    transform: translateY(-60%);
+    transform: translateY(-100%);
     height: 60px;
     border-radius: 100%;
+    @media only screen and (max-width: 1024px) {
+      width: 40px;
+      height: 40px;
+    }
     &::after {
-      font-size: 22px;
-      font-weight: bold;
+      font-size: 18px;
+      font-weight: 800;
     }
   }
   .swiper-button-next {
@@ -557,11 +561,16 @@ const Homtemplate = styled.div`
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 60px;
     height: 60px;
+    @media only screen and (max-width: 1024px) {
+      width: 40px;
+      height: 40px;
+    }
     font-weight: 800;
-    transform: translateY(-60%);
+    transform: translateY(-100%);
     border-radius: 100%;
     &::after {
-      font-size: 22px;
+      font-size: 18px;
+      font-weight: 800;
     }
   }
 `;
