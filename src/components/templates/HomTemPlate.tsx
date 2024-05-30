@@ -133,7 +133,7 @@ export const HomTemPlate = () => {
       />
       {/* banner */}
       <BannerMovie />
-      <section className="bg-pinkTheme opacity-10">
+      <section className="bg-pinkTheme/20">
         <div className="py-24 max-lg:py-12 flex lg:space-x-5 justify-between max-lg:space-y-7 items-center max-lg:items-start max-lg:flex-col w-[90%] mx-auto">
           <div>
             <h2 className="text-4xl text-pinkTheme max-sm:text-2xl font-bold">
@@ -391,7 +391,7 @@ export const HomTemPlate = () => {
         </div>
       </section>
       {/* blog film ảnh */}
-      <section className="bg-pinkTheme/100 py-24 max-lg:py-12">
+      <section className="bg-pinkTheme/20 py-24 max-lg:py-12">
         <div className="text-center w-[90%] mx-auto">
           <h3 className="font-bold  text-4xl max-sm:text-2xl text-pinkTheme">
             Blog phim ảnh
