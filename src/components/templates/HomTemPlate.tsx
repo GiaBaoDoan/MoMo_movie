@@ -123,7 +123,7 @@ export const HomTemPlate = () => {
   // loading page
   if (isFetchMovie) return <Loading />;
   return (
-    <Homtemplate className="relative overflow-x-hidden">
+    <Homtemplate className="relative text-black overflow-x-hidden">
       <ModalVideo
         channel="youtube"
         youtube={{ mute: 0, autoplay: 0 }}
