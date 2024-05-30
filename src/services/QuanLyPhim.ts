@@ -7,9 +7,9 @@ const api = apiInstance({
 export const QuanLyPhimService = {
     getAllList : (tenPhim ='') => { 
         if (tenPhim !=='') {
-            return api.get<ApiReponse<ListFilm[]>>(`/LayDanhSachPhim?maNhom=GP01&tenPhim=${tenPhim}`)
+            return api.get<ApiReponse<ListFilm[]>>(`/LayDanhSachPhim?maNhom=GP03&tenPhim=${tenPhim}`)
         }
-        return api.get<ApiReponse<ListFilm[]>>(`/LayDanhSachPhim?maNhom=GP01`)
+    return api.get<ApiReponse<ListFilm[]>>(`/LayDanhSachPhim?maNhom=GP03`)
         
     },
     getBannerList : ()=> {

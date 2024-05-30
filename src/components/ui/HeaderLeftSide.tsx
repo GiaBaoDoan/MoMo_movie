@@ -17,7 +17,7 @@ const HeaderLeftSide = ({ openHeader, registerRef, loginRef }) => {
 
   return (
     <section
-      className={`lg:hidden fixed shadow-lg transition-all border z-10 top-50 left-0  w-[100vw]  bg-white  ${
+      className={`fixed shadow-lg transition-all border z-10 top-50 left-0  w-[100vw]  bg-white  ${
         openHeader ? "-translate-y-[900px]" : "translate-y-0"
       }`}
     >
@@ -68,7 +68,7 @@ const HeaderLeftSide = ({ openHeader, registerRef, loginRef }) => {
                 window.location.reload();
               }}
               className={
-                "hover:text-pinkTheme text-center flex justify-center text-xl"
+                "hover:text-pinkTheme cursor-pointer text-center flex justify-center text-xl"
               }
             >
               <p className="px-3 text-center py-5 font-600 max-sm:text-base">

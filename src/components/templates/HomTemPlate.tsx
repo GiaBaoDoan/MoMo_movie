@@ -261,9 +261,9 @@ export const HomTemPlate = () => {
               </button>
             </div>
           </div>
-          <div>
+          <div className="max-2xl:w-[60%] max-lg:w-full">
             <img
-              className="rounded-lg"
+              className="rounded-lg w-full"
               src="https://homepage.momocdn.net/img/momo-upload-api-230912110416-638301134564267185.jpg"
               alt=""
             />
@@ -322,7 +322,7 @@ export const HomTemPlate = () => {
         </Swiper>
       </section>
       {/* display phim sắp chiếu */}
-      <section className="py-24 max-lg:pt-12">
+      <section className="py-24 max-lg:py-12 bg-white">
         <h2 className="text-4xl font-bold max-sm:text-2xl text-center text-pinkTheme">
           Phim Sắp chiếu
         </h2>

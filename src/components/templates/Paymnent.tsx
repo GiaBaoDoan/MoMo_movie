@@ -74,10 +74,9 @@ const Paymnent = () => {
                 <p>Ngày giờ chiếu</p>
                 <p className="font-bold flex space-x-3 max-sm:text-sm items-center">
                   <span className="text-orange-500 font-bold">
-                    {" "}
                     {danhSachVe?.thongTinPhim.gioChieu}
                   </span>
-                  {" ~ "}
+                  <span>~</span>
                   <span>{danhSachVe?.thongTinPhim.ngayChieu}</span>
                 </p>
               </div>

@@ -54,7 +54,7 @@ export const Header = ({
       <section>
         <AuthForm registerRef={registerRef} loginRef={loginRef} />
         <div
-          className={`header-content w-[90%] max-lg:!w-full
+          className={`header-content w-[90%] max-2xl:!w-full
          mx-auto text-blackTheme flex items-center h-full justify-between`}
         >
           <div
@@ -109,7 +109,7 @@ export const Header = ({
               </p>
             </div>
           </div>
-          <div className="flex max-lg:hidden justify-around items-center space-x-5 text-lg font-600">
+          <div className="flex max-2xl:hidden justify-around items-center space-x-5 text-lg font-600">
             {navContent.map((item, i) => {
               return (
                 <NavLink to={"/"} className={"hover:text-pinkTheme"} key={i}>
@@ -166,7 +166,7 @@ export const Header = ({
               </Popover>
             )}
           </div>
-          <div className="lg:hidden transition-all">
+          <div className="2xl:hidden transition-all">
             <div>
               {openHeader ? (
                 <button onClick={() => setOpenHeader(false)}>

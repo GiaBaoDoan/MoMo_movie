@@ -379,7 +379,7 @@ const Details = () => {
                               500: {
                                 slidesPerView: 4,
                               },
-                              768: {
+                              1024: {
                                 slidesPerView: 5,
                               },
                             }}
@@ -425,7 +425,6 @@ const Details = () => {
                           </Swiper>
                         </div>
                       )}
-
                       <hr />
                       <div>
                         {DetailFilm?.heThongRapChieu[active]?.cumRapChieu

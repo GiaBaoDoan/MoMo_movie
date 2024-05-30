@@ -35,7 +35,6 @@ const AccountTemplates = () => {
     modalRef?.current?.showModal();
     setMaVe(phim);
   };
-  console.log(errors);
   const onSubmit: SubmitHandler<InforSchemaType> = async (data) => {
     await dispatch(
       upDateThunk({
@@ -229,7 +228,7 @@ const AccountTemplates = () => {
           </div>
         </div>
         <div className="bg-white rounded-xl space-y-5 shadow p-[24px]">
-          {LichSuDatVe.thongTinDatVe.length ? (
+          {LichSuDatVe?.thongTinDatVe.length ? (
             <p
               style={{
                 backgroundImage:

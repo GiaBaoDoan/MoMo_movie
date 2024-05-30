@@ -9,9 +9,8 @@ export const Tab = ({ heThongRapChieu }) => {
   const [detailRap, setDetailRap] = useState(0);
   const navigate = useNavigate();
   const listRapRef = useRef<HTMLDialogElement>();
-  console.log(heThongRapChieu[active]?.lstCumRap);
   return (
-    <section className="mx-auto mt-12 w-[90%] rounded-lg bg-white border shadow-md ">
+    <section className="mx-auto w-[90%] max-sm:mt-5 mt-12 rounded-lg bg-white border shadow-md ">
       <ListRapPopUp
         heThongRap={heThongRapChieu[active]}
         detailRap={detailRap}
