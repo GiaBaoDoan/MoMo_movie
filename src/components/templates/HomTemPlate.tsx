@@ -421,7 +421,7 @@ export const HomTemPlate = () => {
         </div>
       </section>
       {/*  */}
-      <section className="py-24 max-lg:py-12 w-[90%] mx-auto">
+      <section className="py-24 max-lg:py-12 bg-white w-[90%] mx-auto">
         <h3 className="text-4xl max-sm:text-2xl text-center font-bold text-pinkTheme">
           Đặt mua vé xem phim trên MoMo
         </h3>

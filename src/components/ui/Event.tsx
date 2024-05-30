@@ -2,7 +2,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import Data from "../../Event.json";
 const Event = () => {
   return (
-    <section className="pb-24 max-lg:pb-12">
+    <section className="pb-24 max-lg:pb-12 bg-white">
       <h2 className="text-center text-pinkTheme font-bold text-4xl max-sm:text-2xl">
         Sự kiện
       </h2>

@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        pinkTheme: "rgba(216 45 139)",
+        pinkTheme: "rgb(216 45 139)",
         blackTheme: "rgba(82, 82, 82, 1)",
       },
       fontFamily: {

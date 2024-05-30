@@ -2,7 +2,7 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import Data from "../../data.json";
 const Sale = () => {
   return (
-    <section className="py-24 max-lg:py-12">
+    <section className="py-24 max-lg:py-12 bg-white">
       <h2 className="text-center text-pinkTheme font-bold text-4xl max-sm:text-2xl">
         Khuyến mãi
       </h2>
