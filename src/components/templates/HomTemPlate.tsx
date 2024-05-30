@@ -391,7 +391,7 @@ export const HomTemPlate = () => {
         </div>
       </section>
       {/* blog film ảnh */}
-      <section className="bg-pinkTheme/10 py-24 max-lg:py-12">
+      <section className="bg-pinkTheme/100 py-24 max-lg:py-12">
         <div className="text-center w-[90%] mx-auto">
           <h3 className="font-bold  text-4xl max-sm:text-2xl text-pinkTheme">
             Blog phim ảnh
