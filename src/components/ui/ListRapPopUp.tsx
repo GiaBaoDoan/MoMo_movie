@@ -1,8 +1,8 @@
 const ListRapPopUp = ({ listRapRef, heThongRap, detailRap, setDetailRap }) => {
   console.log(heThongRap);
   return (
-    <dialog ref={listRapRef} className="modal">
-      <div className="modal-box !p-0">
+    <dialog ref={listRapRef} className="modal bg-white">
+      <div className="modal-box !p-0 bg-white">
         <div className="flex p-5 space-x-3 items-center justify-center">
           <img src={heThongRap?.logo} className="h-11" alt="" />
           <h4 className="text-xl font-medium text-center">
