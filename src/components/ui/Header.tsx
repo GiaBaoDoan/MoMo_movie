@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "../../assets/style.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { RootState } from "store";
 import { useSelector } from "react-redux";
@@ -109,7 +108,7 @@ export const Header = ({
               </p>
             </div>
           </div>
-          <div className="flex max-2xl:hidden justify-around items-center space-x-5 text-lg font-600">
+          <div className="flex max-2xl:hidden text-black justify-around items-center space-x-5 text-lg font-600">
             {navContent.map((item, i) => {
               return (
                 <NavLink to={"/"} className={"hover:text-pinkTheme"} key={i}>

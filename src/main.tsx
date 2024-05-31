@@ -5,7 +5,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { StyleProvider } from "@ant-design/cssinjs";
 import { store } from "store";
-import "./i18n";
 import { Suspense } from "react";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>

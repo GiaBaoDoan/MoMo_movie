@@ -6,12 +6,6 @@ import Home from "Pages/Home";
 import MainLayout from "components/layouts/MainLayout";
 import Details from "Pages/Details";
 import Checkout from "Pages/Checkout";
-import Admin from "Pages/Amin/Admin";
-import Film from "Pages/Amin/Film";
-import DashBoard from "Pages/Amin/DashBoard";
-import ShowTimes from "Pages/Amin/ShowTimes";
-import AddFilm from "Pages/Amin/AddFilm";
-import EditFilm from "Pages/Amin/EditFilm";
 import Account from "Pages/Account";
 import Paymnent from "components/templates/Paymnent";
 import NotFoundPage from "Pages/NotFoundPage";
@@ -55,31 +49,6 @@ export const router: RouteObject[] = [
       {
         path: PATH.resgister,
         element: <Register />,
-      },
-    ],
-  },
-  {
-    element: <Admin />,
-    children: [
-      {
-        path: PATH.film,
-        element: <Film />,
-      },
-      {
-        path: PATH.addFilm,
-        element: <AddFilm />,
-      },
-      {
-        path: PATH.edit,
-        element: <EditFilm />,
-      },
-      {
-        path: PATH.dashboard,
-        element: <DashBoard />,
-      },
-      {
-        path: PATH.showtimes,
-        element: <ShowTimes />,
       },
     ],
   },

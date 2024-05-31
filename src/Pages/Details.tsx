@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "store";
 import { getDetailFilm } from "store/GetDetailFilm/Thunk";
-import "../assets/Css/circle.css";
 import moment from "moment";
 import { useNavigate, useParams } from "react-router-dom";
 import Sale from "components/ui/Sale";

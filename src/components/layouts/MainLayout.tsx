@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "../../assets/style.css";
 import { Footer, Header } from "components/ui";
 import { Outlet } from "react-router-dom";
 import HeaderLeftSide from "components/ui/HeaderLeftSide";

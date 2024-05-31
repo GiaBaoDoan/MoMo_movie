@@ -29,13 +29,14 @@ export const Logins = ({ registerRef, loginRef }: any) => {
     await dispacth(LoginThunk(value))
       .unwrap()
       .then((_) => {
-        toast.success("Đăng nhập thành công");
+        toast.success("Đăng nhập thành công", { containerId: "A" });
         loginRef.current.close();
       })
       .catch((err) => {
-        toast.error(err?.response?.data?.content);
+        toast.error(err?.response?.data?.content, { containerId: "A" });
       });
   };
+
   return (
     <form
       className="bg-white h-full rounded-tr-xl rounded-br-xl py-5 max-sm:p-0"
