@@ -697,6 +697,7 @@ const Details = () => {
 };
 const DetailsCss = styled.div`
   background-color: white;
+  color: black;
   .overlay {
     @media only screen and (max-width: 1024px) {
       background-image: linear-gradient(

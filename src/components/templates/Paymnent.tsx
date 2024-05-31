@@ -60,7 +60,7 @@ const Paymnent = () => {
   }, [item?.id]);
   if (isFetchListTicket) return <Loading />;
   return (
-    <section className="py-24 max-lg:py-12 bg-slate-50">
+    <section className="py-24 text-black max-lg:py-12 bg-slate-50">
       <div className="w-[90%] mx-auto max-lg:flex-col flex max-lg:space-y-5 lg:space-x-5">
         <div style={{ flex: "2" }} className="left space-y-5">
           <div className="left-top p-5 rounded-xl text-lg max-sm:text-base font-medium shadow bg-white space-y-5">

@@ -17,6 +17,7 @@ const MainLayout = () => {
         setOpenHeader={setOpenHeader}
       />
       <HeaderLeftSide
+        setOpenHeader={setOpenHeader}
         registerRef={registerRef}
         loginRef={loginRef}
         openHeader={openHeader}

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RootState } from "store";
 const navContent = [
@@ -10,10 +10,16 @@ const navContent = [
   "Giới thiệu",
   "Giá vé",
 ];
-const HeaderLeftSide = ({ openHeader, registerRef, loginRef }) => {
+const HeaderLeftSide = ({
+  openHeader,
+  registerRef,
+  setOpenHeader,
+  loginRef,
+}) => {
   const { user } = useSelector(
     (state: RootState) => state.quanLyNguoiDungToolkit
   );
+  const navigate = useNavigate();
 
   return (
     <section
@@ -24,8 +30,11 @@ const HeaderLeftSide = ({ openHeader, registerRef, loginRef }) => {
       <div className="flex flex-col ">
         {navContent.map((item, i) => {
           return (
-            <NavLink
-              to={"/"}
+            <button
+              onClick={() => {
+                navigate("/");
+                setOpenHeader(true);
+              }}
               className={"hover:text-pinkTheme text-xl"}
               key={i}
             >
@@ -33,12 +42,12 @@ const HeaderLeftSide = ({ openHeader, registerRef, loginRef }) => {
                 {item}
               </p>
               {i !== navContent.length - 1 && <hr />}
-            </NavLink>
+            </button>
           );
         })}
         <hr />
         {!user?.taiKhoan && (
-          <div className="flex space-x-3 m items-center justify-center p-5">
+          <div className="flex space-x-3 items-center justify-center p-5">
             <button
               onClick={() => registerRef.current.showModal()}
               className="border-black/80 border text-base hover:bg-black/80 hover:text-white text-black/80 rounded-full p-2 px-5"
@@ -55,11 +64,17 @@ const HeaderLeftSide = ({ openHeader, registerRef, loginRef }) => {
         )}
         {user?.taiKhoan && (
           <div>
-            <NavLink to={"/account"} className={"hover:text-pinkTheme text-xl"}>
+            <div
+              onClick={() => {
+                navigate("/account");
+                setOpenHeader(true);
+              }}
+              className={"hover:text-pinkTheme text-xl"}
+            >
               <p className="px-3 text-center py-5 font-600 max-sm:text-base">
                 Thông tin cá nhân
               </p>
-            </NavLink>
+            </div>
             <hr />
             <div
               onClick={() => {

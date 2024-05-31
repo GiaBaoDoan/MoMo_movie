@@ -361,6 +361,7 @@ const CheckoutTemplate = () => {
   );
 };
 const Checkout = styled.div`
+  color: black;
   h3 {
     margin: 15px 0;
     font-weight: 500;
