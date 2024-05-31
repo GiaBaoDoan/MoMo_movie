@@ -23,7 +23,7 @@ const HeaderLeftSide = ({
 
   return (
     <section
-      className={`fixed shadow-lg transition-all border z-10 top-50 left-0  w-[100vw]  bg-white  ${
+      className={`fixed shadow-lg 2xl:hidden transition-all border z-10 top-50 left-0  w-[100vw]  bg-white  ${
         openHeader ? "-translate-y-[900px]" : "translate-y-0"
       }`}
     >
