@@ -107,20 +107,20 @@ const CheckoutTemplate = () => {
             </div>
             <div className="space-y-5 max-sm:space-y-3 font-medium">
               <p className="text-pinkTheme">
-                <span className="font-normal text-black">Tên phim : </span>
+                <span className=" text-black">Tên phim : </span>
                 {danhSachVe?.thongTinPhim?.tenPhim}
               </p>
               <p>
-                <span className="font-normal">Ngày chiếu : </span>
+                <span className="">Ngày chiếu : </span>
                 {danhSachVe?.thongTinPhim?.gioChieu} ~{" "}
                 {danhSachVe?.thongTinPhim?.ngayChieu}
               </p>
               <p>
-                <span className="font-normal">Ten cụm rạp:</span>{" "}
+                <span className="">Ten cụm rạp:</span>{" "}
                 {danhSachVe?.thongTinPhim.tenCumRap}
               </p>
               <p>
-                <span className="font-normal text-black">Địa điểm: </span>
+                <span className=" text-black">Địa điểm: </span>
                 {danhSachVe?.thongTinPhim?.diaChi} ~{" "}
                 {danhSachVe?.thongTinPhim?.tenRap}
               </p>
@@ -287,7 +287,7 @@ const CheckoutTemplate = () => {
                   </span>
                 </p>
                 <p className="text-xl font-medium">
-                  <span className="font-normal">Tên cụm rạp: </span>
+                  <span className="">Tên cụm rạp: </span>
                   {danhSachVe?.thongTinPhim?.tenCumRap}
                 </p>
                 <hr />
