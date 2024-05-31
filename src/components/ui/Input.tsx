@@ -29,7 +29,7 @@ export const Input = ({
         type={type}
         className={` outline-none ${
           error ? "border-red-500" : ""
-        } relative block w-full  border p-15 rounded-lg`}
+        } relative block w-full  border bg-transparent p-15 rounded-lg`}
         {...register(name)}
       ></input>
       {error && <p className="text-red-500 text-[16px]">*{error}</p>}

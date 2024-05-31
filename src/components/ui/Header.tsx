@@ -50,7 +50,7 @@ export const Header = ({
     </div>
   );
   return (
-    <HeaderS className="max-lg:p-10 p-5">
+    <HeaderS className="max-lg:p-10 p-5 text-black">
       <section>
         <AuthForm registerRef={registerRef} loginRef={loginRef} />
         <div
@@ -214,6 +214,7 @@ export const Header = ({
   );
 };
 const HeaderS = styled.header`
+  color: black;
   top: 0;
   z-index: 10;
   position: sticky;
