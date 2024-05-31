@@ -2,7 +2,7 @@ import { Logins, Register } from "Pages";
 
 const AuthForm = ({ loginRef, registerRef }) => {
   return (
-    <section>
+    <section className="bg-white">
       <dialog ref={loginRef} className="modal">
         <div className="modal-box">
           <Logins loginRef={loginRef} registerRef={registerRef} />
