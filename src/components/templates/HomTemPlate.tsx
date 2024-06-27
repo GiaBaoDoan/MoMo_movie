@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "store";
 import { getBannerList } from "store/GetBannerList/Thunk";
-import { getListFilmThunk } from "store/QuanLyFilm/Thunk";
+import { getListFilmGP01Thunk } from "store/ListFilmGP01/Thunk";
 import ModalVideo from "react-modal-video";
 import "react-modal-video/scss/modal-video.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import News from "../../News.json";
 import TopViews from "../../TopViews.json";
+import validator from "validator";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -24,12 +25,13 @@ import Sale from "components/ui/Sale";
 import Event from "components/ui/Event";
 import BannerMovie from "components/ui/BannerMovie";
 import Loading from "components/ui/Loading";
+import { ListFilm } from "types/QuanLyPhim";
 export const HomTemPlate = () => {
   const dispatch = useAppDispatch();
   const [isOpen, setOpen] = useState(false);
   const [trailer, setTrailer] = useState("");
-  const { listFilm, isFetchMovie } = useSelector(
-    (state: RootState) => state.quanLyPhimToolKit
+  const { listFilmGP01, isFetchMovie } = useSelector(
+    (state: RootState) => state.GP01Store
   );
   const { heThong } = useSelector((state: RootState) => state.quanLyRapToolkit);
   const { heThongRapChieu } = useSelector(
@@ -114,7 +116,7 @@ export const HomTemPlate = () => {
     },
   ];
   useEffect(() => {
-    dispatch(getListFilmThunk(""));
+    dispatch(getListFilmGP01Thunk());
     dispatch(getBannerList());
     dispatch(getThongTinRap());
     dispatch(getLichSuDatVeThunk());
@@ -305,18 +307,22 @@ export const HomTemPlate = () => {
           }}
           className="mx-auto mt-5 text-white flex justify-center w-[90%]"
         >
-          {listFilm?.map((film, index) => {
+          {listFilmGP01?.map((film: ListFilm, index) => {
             return (
-              <SwiperSlide>
-                <CardFilm
-                  setTrailer={setTrailer}
-                  setOpen={setOpen}
-                  index={index + 1}
-                  height={"100%"}
-                  width={"100%"}
-                  film={film}
-                />
-              </SwiperSlide>
+              validator.isURL(film.trailer, {
+                protocols: ["http", "https", "ftp"],
+              }) && (
+                <SwiperSlide>
+                  <CardFilm
+                    setTrailer={setTrailer}
+                    setOpen={setOpen}
+                    index={index + 1}
+                    width={"100%"}
+                    height={"100%"}
+                    film={film}
+                  />
+                </SwiperSlide>
+              )
             );
           })}
         </Swiper>
@@ -348,18 +354,22 @@ export const HomTemPlate = () => {
           }}
           className="mx-auto mt-5 text-black flex justify-center w-[90%]"
         >
-          {listFilm?.map((film, index) => {
+          {listFilmGP01?.map((film: ListFilm, index) => {
             return (
-              <SwiperSlide>
-                <CardFilm
-                  setTrailer={setTrailer}
-                  setOpen={setOpen}
-                  index={index + 1}
-                  width={"100%"}
-                  height={"100%"}
-                  film={film}
-                />
-              </SwiperSlide>
+              validator.isURL(film.trailer, {
+                protocols: ["http", "https", "ftp"],
+              }) && (
+                <SwiperSlide>
+                  <CardFilm
+                    setTrailer={setTrailer}
+                    setOpen={setOpen}
+                    index={index + 1}
+                    width={"100%"}
+                    height={"100%"}
+                    film={film}
+                  />
+                </SwiperSlide>
+              )
             );
           })}
         </Swiper>

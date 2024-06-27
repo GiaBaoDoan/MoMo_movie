@@ -25,6 +25,7 @@ const AccountTemplates = () => {
   const [maVe, setMaVe] = useState<any>();
   const {
     handleSubmit,
+    reset,
     register,
     formState: { errors },
   } = useForm({
@@ -64,9 +65,9 @@ const AccountTemplates = () => {
     </svg>
   );
   useEffect(() => {
+    reset({ ...LichSuDatVe, soDt: LichSuDatVe?.soDT });
     if (!localStorage.getItem("USER")) return navigate("/");
-    dispatch(getLichSuDatVeThunk());
-  }, []);
+  }, [LichSuDatVe]);
   if (isLoading) return <Loading />;
   return (
     <AccountCSS>

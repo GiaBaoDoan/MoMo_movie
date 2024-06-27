@@ -26,7 +26,6 @@ const MainLayout = () => {
     </div>
   );
 };
-
 export default MainLayout;
 export const Container = styled.div`
   max-width: var(--max-width);

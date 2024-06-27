@@ -17,7 +17,7 @@ const BannerMovie = () => {
           {bannerFilm.map((item) => {
             return (
               <SwiperSlide>
-                <img src={item} alt="" />
+                <img className="w-full" src={item} alt="" />
               </SwiperSlide>
             );
           })}

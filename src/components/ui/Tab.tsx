@@ -108,6 +108,7 @@ export const Tab = ({ heThongRapChieu }) => {
             <div className="p-5">
               <div className="flex border items-center justify-between w-full px-5 py-3 rounded outline-none">
                 <input
+                  onChange={(e) => console.log(e.target.value)}
                   type="text"
                   className="outline-none flex-1"
                   placeholder="Tìm theo cụm rạp..."

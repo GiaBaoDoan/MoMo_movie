@@ -6,13 +6,14 @@ import moment from "moment";
 import { useNavigate, useParams } from "react-router-dom";
 import Sale from "components/ui/Sale";
 import Event from "components/ui/Event";
-import { getListFilmThunk } from "store/QuanLyFilm/Thunk";
+import { getListFilmGP01Thunk } from "store/ListFilmGP01/Thunk";
 import ModalVideo from "react-modal-video";
 import "react-modal-video/scss/modal-video.scss";
 import Loading from "components/ui/Loading";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { ListFilm } from "types/QuanLyPhim";
 const Details = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -20,8 +21,8 @@ const Details = () => {
   const { DetailFilm, isFetchDetail } = useSelector(
     (state: RootState) => state.GetDetail
   );
-  const { listFilm } = useSelector(
-    (state: RootState) => state.quanLyPhimToolKit
+  const { listFilmGP01, isFetchMovie } = useSelector(
+    (state: RootState) => state.GP01Store
   );
   const [isOpen, setOpen] = useState(false);
   const [trailer, setTrailer] = useState<string>("");
@@ -61,10 +62,10 @@ const Details = () => {
   };
   useEffect(() => {
     dispatch(getDetailFilm(id));
-    dispatch(getListFilmThunk(""));
+    dispatch(getListFilmGP01Thunk());
   }, [id]);
   // loading page
-  if (isFetchDetail) return <Loading />;
+  if (isFetchDetail || isFetchMovie) return <Loading />;
   return (
     <DetailsCss>
       <section>
@@ -606,72 +607,74 @@ const Details = () => {
                 Phim đang chiếu
               </h3>
               <div className="mt-5 space-y-5">
-                {listFilm.slice(0, moreFilm).map((film, index) => {
-                  return (
-                    <div onClick={() => navigate(`/details/${film.maPhim}`)}>
-                      <div className="flex space-x-5">
-                        <div className="relative">
-                          <img
-                            src={film.hinhAnh}
-                            className="w-[100px] hover:scale-110 cursor-pointer transition-all h-[150px] object-cover rounded-lg"
-                            alt=""
-                          />
-                          <div className="number left-10 absolute -bottom-0 font-bold text-xl z-1">
-                            <p
-                              style={{ textShadow: "3px 3px black" }}
-                              className="text-gray-200 "
-                            >
-                              {index + 1}
+                {listFilmGP01
+                  .slice(0, moreFilm)
+                  .map((film: ListFilm, index) => {
+                    return (
+                      <div onClick={() => navigate(`/details/${film.maPhim}`)}>
+                        <div className="flex space-x-5">
+                          <div className="relative">
+                            <img
+                              src={film.hinhAnh}
+                              className="w-[100px] hover:scale-110 cursor-pointer transition-all h-[150px] object-cover rounded-lg"
+                              alt=""
+                            />
+                            <div className="number left-10 absolute -bottom-0 font-bold text-xl z-1">
+                              <p
+                                style={{ textShadow: "3px 3px black" }}
+                                className="text-gray-200 "
+                              >
+                                {index + 1}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="space-y-3">
+                            {film.hot ? (
+                              <button className="bg-[#006ee6] uppercase p-[4px] text-sm font-medium  rounded-md text-white">
+                                Hot
+                              </button>
+                            ) : (
+                              <button className="bg-[#9b2020] uppercase p-[4px] text-sm   rounded-md font-medium text-white">
+                                Hay
+                              </button>
+                            )}
+                            <p className="font-bold text-lg capitalize">
+                              {film.tenPhim}
                             </p>
+                            <p className="text-pinkTheme font-bold uppercase">
+                              Đang chiếu
+                            </p>
+                            <div className="flex space-x-[8px]">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="gold"
+                                color="gold"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="lucide lucide-star"
+                              >
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                              </svg>
+                              <p className="text-blackTheme font-medium">
+                                {film.danhGia}
+                              </p>
+                            </div>
                           </div>
                         </div>
-                        <div className="space-y-3">
-                          {film.hot ? (
-                            <button className="bg-[#006ee6] uppercase p-[4px] text-sm font-medium  rounded-md text-white">
-                              Hot
-                            </button>
-                          ) : (
-                            <button className="bg-[#9b2020] uppercase p-[4px] text-sm   rounded-md font-medium text-white">
-                              Hay
-                            </button>
-                          )}
-                          <p className="font-bold text-lg capitalize">
-                            {film.tenPhim}
-                          </p>
-                          <p className="text-pinkTheme font-bold uppercase">
-                            Đang chiếu
-                          </p>
-                          <div className="flex space-x-[8px]">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="gold"
-                              color="gold"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="lucide lucide-star"
-                            >
-                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                            </svg>
-                            <p className="text-blackTheme font-medium">
-                              {film.danhGia}
-                            </p>
-                          </div>
-                        </div>
+                        <br />
+                        <hr />
                       </div>
-                      <br />
-                      <hr />
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
               <div className="mt-5">
-                {listFilm.length > 5 &&
-                  (moreFilm < listFilm.length ? (
+                {listFilmGP01?.length > 5 &&
+                  (moreFilm < listFilmGP01?.length ? (
                     <button
                       onClick={handelMoreFilm}
                       className="border rounded-full border-pinkTheme font-medium text-pinkTheme px-5 py-2"

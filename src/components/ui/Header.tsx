@@ -49,7 +49,7 @@ export const Header = ({
     </div>
   );
   return (
-    <HeaderS className="max-lg:p-10 p-5 text-black">
+    <HeaderS className="max-lg:p-10 py-5 text-black">
       <section>
         <AuthForm registerRef={registerRef} loginRef={loginRef} />
         <div
