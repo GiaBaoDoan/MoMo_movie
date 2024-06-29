@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RootState, useAppDispatch } from "store";
 import { getVePhim } from "store/GetDanhSachDatVe/Thunk";
+import { getLichSuDatVeThunk } from "store/GetLichSuVeDat/Thunk";
 import { DatVeThunk } from "store/ThongTinDatVe/Thunk";
 import Swal from "sweetalert2";
 const Paymnent = () => {
@@ -32,8 +33,9 @@ const Paymnent = () => {
         text: "Cùng trải nghiệm buổi xem phim bất tận nào!!s",
         icon: "success",
       });
+      await dispatch(getLichSuDatVeThunk());
       navigate("/account");
-    } catch (err: any) {
+    } catch (err) {
       console.log(err);
     }
   };

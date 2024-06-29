@@ -3,6 +3,7 @@ import { Footer, Header } from "components/ui";
 import { Outlet } from "react-router-dom";
 import HeaderLeftSide from "components/ui/HeaderLeftSide";
 import { useRef, useState } from "react";
+import BackToTop from "components/ui/BackToTop";
 const MainLayout = () => {
   const [openHeader, setOpenHeader] = useState<boolean>(true);
   const loginRef = useRef<HTMLDialogElement>();
@@ -22,6 +23,7 @@ const MainLayout = () => {
         openHeader={openHeader}
       />
       <Outlet />
+      <BackToTop />
       <Footer />
     </div>
   );
